@@ -4,9 +4,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping(value = "/sub")
 public class SubController {
 
-	@RequestMapping(value = "/sub/sub.do")
+	@RequestMapping(value = "/sub.do")
 	public String test() {
 		return "sub/sub";
 	}
