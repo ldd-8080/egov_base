@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,10 +15,13 @@
 	<br/>
 	<div>
 		SUB TEST PAGE <br/>
-	<form action = "/sub/subs.do" method = "post">
-		<input type = "text" id = "userId" name = "userId" value = "${user.userId}"/> <br/>
+	<form:form action = "/sub/subs.do" method = "post" modelAttribute="subVo">
+		<form:input type = "text" path="userId" size="20"/>
+		<form:errors path="userId"/>
+		<br/>
+		
 		<input type = "submit" value = "전송">
-	</form>
+	</form:form>
 		
 	</div>
 </body>
