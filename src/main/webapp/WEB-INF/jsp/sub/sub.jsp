@@ -13,7 +13,12 @@
 	<br/>
 	<br/>
 	<div>
-		SUB TEST PAGE
+		SUB TEST PAGE <br/>
+	<form action = "/sub/subs.do" method = "post">
+		<input type = "text" id = "userId" name = "userId" value = "${user.userId}"/> <br/>
+		<input type = "submit" value = "전송">
+	</form>
+		
 	</div>
 </body>
 </html>
