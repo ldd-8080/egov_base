@@ -69,5 +69,6 @@ local.properties
 .sts4-cache/
 
 .classpath
-target/
+/target/
+**/target
 # End of https://www.toptal.com/developers/gitignore/api/eclipse
