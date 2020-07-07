@@ -7,6 +7,7 @@
 	<definition name="layouts-tiles" template="/WEB-INF/tiles/template.jsp">
 	  	<put-attribute name="header"    value="/WEB-INF/jsp/tiles/header.jsp" />
 	  	<put-attribute name="nav"    	value="/WEB-INF/jsp/tiles/nav.jsp" />
+	  	<put-attribute name="left"    	value="/WEB-INF/jsp/tiles/left.jsp" />
 	  	<put-attribute name="body"    	value="" />
 	  	<put-attribute name="footer"   	value="/WEB-INF/jsp/tiles/footer.jsp" />
 	</definition>

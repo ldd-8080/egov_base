@@ -1,26 +1,58 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-		<title>HEADER TITLE</title>
-        <link href="${pageContext.request.contextPath}/css/styles.css" rel="stylesheet" />
-        <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="${pageContext.request.contextPath}/js/scripts.js"></script>
-        <%-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="${pageContext.request.contextPath}/js/chart-area-demo.js"></script>
-        <script src="${pageContext.request.contextPath}/js/chart-bar-demo.js"></script> --%>
-        <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
-        <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
-        <%-- <script src="${pageContext.request.contextPath}/js/datatables-demo.js"></script> --%>
-	</head>
-</html>
+<%-- 
+<link href="${pageContext.request.contextPath}/css/styles.css" rel="stylesheet" />
+<script src="${pageContext.request.contextPath}/js/scripts.js"></script>
+<script src="${pageContext.request.contextPath}/js/chart-bar-demo.js"></script> 
+--%>
+
+        
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+<meta name="description" content="bootstrap material admin template">
+<meta name="author" content="">
+
+<title>Dashboard | Remark Material Admin Template</title>
+
+<link rel="apple-touch-icon" href="${pageContext.request.contextPath}/images/apple-touch-icon.png">
+<link rel="shortcut icon" href="${pageContext.request.contextPath}/images/favicon.ico">
+
+<!-- Stylesheets -->
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap/bootstrap-extend.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/site/site.min.css">
+
+<!-- Plugins -->
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/animsition/animsition.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/asscrollable/asScrollable.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/switchery/switchery.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/intro-js/introjs.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/slidepanel/slidePanel.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/flag-icon-css/flag-icon.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/waves/waves.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/chartist/chartist.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/jvectormap/jquery-jvectormap.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/chartist-plugin-tooltip/chartist-plugin-tooltip.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/dashboard/v1.css">
+
+
+<!-- Fonts -->
+<link rel="stylesheet" href="${pageContext.request.contextPath}/font/material-design/material-design.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/font/brand-icons/brand-icons.min.css">
+<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic'>
+
+<!--[if lt IE 9]>
+<script src="../../global/vendor/html5shiv/html5shiv.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 10]>
+<script src="../../global/vendor/media-match/media.match.min.js"></script>
+<script src="../../global/vendor/respond/respond.min.js"></script>
+<![endif]-->
+
+<!-- Scripts -->
+<script src="${pageContext.request.contextPath}/js/breakpoints/breakpoints.js"></script>
+<script>
+  Breakpoints();
+</script>
