@@ -16,11 +16,15 @@ public class SubServieImpl extends EgovAbstractServiceImpl implements SubService
 	private SubMapper subMapper;
 	
 	@Override
-	public SubVo login(SubVo vo) throws Exception {
-		// TODO Auto-generated method stub
-		
-		
+	public SubVo login(SubVo vo) throws Exception {		
 		return subMapper.selectLoginCheck(vo);
 	}
+
+	@Override
+	public void singUp(SubVo vo) throws Exception {
+		subMapper.signUp(vo);
+		
+	}
+
 
 }

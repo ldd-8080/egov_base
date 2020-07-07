@@ -44,6 +44,17 @@ public class SubController {
 		return "main/main";
 	}
 	
+	@RequestMapping(value = "/signUpPage.do", method = RequestMethod.GET)
+	//@ModelAttribute는 생략해도  무관하나 명시적으로 붙여는것이 좋
+	public String signUpPage(ModelMap model) {
+		System.out.println("---------- SubController signUpPage() sub/signUpPage.do ----------");
+				
+		model.addAttribute("subVo", new SubVo());
+		return "sub/signUp";
+		
+	}
+	
+	
 	
 	@RequestMapping(value = "/login.do")
 	public String login(@ModelAttribute @Valid SubVo vo, BindingResult result, ModelMap model) throws Exception {
@@ -70,9 +81,29 @@ public class SubController {
 				return "main/main";
 			}else {
 				return "sub/sub";
-			}
-				
+			}				
 		}
+	}
+	
+
+	@RequestMapping(value = "/signUp.do")
+	public String signUp(@ModelAttribute @Valid SubVo vo, BindingResult result, ModelMap model) throws Exception {
+		System.out.println("---------- SubController signUp() sub/signUp.do ----------");
+		
+		if (result.hasErrors()) {
+			System.out.println("result Error : " + result.getFieldError().getDefaultMessage());
+			return "sub/signUp";
+		}
+		
+		
+		SecurityUtil securityUtil = new SecurityUtil();
+		String EncryptPw = securityUtil.encryptSHA256(vo.getPwKey());
+		System.out.println("EncryptPw = " + EncryptPw +", vo.getPwKey() = " + vo.getPwKey());
+		vo.setPw(EncryptPw);
+		
+		subService.singUp(vo);
+		
+		return "main/main";
 	}
 	
 

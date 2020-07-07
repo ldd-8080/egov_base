@@ -9,10 +9,31 @@ public class SubVo {
 	@Size(min=1, max=30, message="userId not null")
 	private String email;
 	private String pw;
+	private String phone_num;
+	private String nickname;
+	private String pwCheck;
 	private String key = "daul";
 	private boolean useCookie;
 	
 	
+	public String getPhone_num() {
+		return phone_num;
+	}
+	public void setPhone_num(String phone_num) {
+		this.phone_num = phone_num;
+	}
+	public String getNickname() {
+		return nickname;
+	}
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+	public String getPwCheck() {
+		return pwCheck;
+	}
+	public void setPwCheck(String pwCheck) {
+		this.pwCheck = pwCheck;
+	}
 	public String getEmail() {
 		return email;
 	}

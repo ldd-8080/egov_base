@@ -4,7 +4,12 @@
 	namespace="egovframework.com.sub.mapper.SubMapper">
 	
 	<select id="selectLoginCheck" resultType="egovframework.com.sub.vo.SubVo">
-		select email,pw from out_user
-		where email = #{email}
+		SELECT email,pw FROM out_user
+		WHERE email = #{email}
 	</select>
+	
+	<insert id="signUp">
+		INSERT INTO out_user (email, pw, nickname, phone_num)
+		VALUES (#{email},#{pw},#{nickname},#{phone_num})
+	</insert>
 </mapper>
