@@ -17,6 +17,7 @@ public class cmmnInterceptor extends HandlerInterceptorAdapter {
 		// TODO Auto-generated method stub
 		
 		if(log.isDebugEnabled()) {
+		
 			log.debug(" ============= start ==============");
 			log.debug("Request URI \t :" + request.getRequestURI());
 		}
@@ -30,7 +31,8 @@ public class cmmnInterceptor extends HandlerInterceptorAdapter {
 		// TODO Auto-generated method stub
 		
 		if(log.isDebugEnabled()) {
-			log.debug(" ============= end ==============");
+			log.debug(" ============= end ==============\n\n");
+			
 		}
 		
 		super.postHandle(request, response, handler, modelAndView);
