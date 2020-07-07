@@ -31,7 +31,7 @@
           </div> -->
           <button type="submit" class="btn btn-primary btn-block btn-lg mt-40">Sign in</button>
         </form:form>
-        <p>Still no account? Please go to <a href="register-v3.html">Sign up</a></p>
+        <p>Still no account? Please go to <a href="/sub/signUpPage.do">Sign up</a></p>
       </div>
     </div>
 
