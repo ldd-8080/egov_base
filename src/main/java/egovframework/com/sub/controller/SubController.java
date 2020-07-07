@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import egovframework.com.cmmn.SecurityUtil;
 import egovframework.com.sub.service.SubService;
 import egovframework.com.sub.vo.SubVo;
 
@@ -54,11 +55,17 @@ public class SubController {
 		
 		SubVo subVo = subService.login(vo);
 		
+		
+		SecurityUtil securityUtil = new SecurityUtil();
+		String EncryptPw = securityUtil.encryptSHA256(vo.getPwKey());
+		System.out.println("EncryptPw = " + EncryptPw +", vo.getPwKey() = " + vo.getPwKey());
+		
+		
 		if(subVo == null) {
 			return "sub/sub";
 		}else {
 			System.out.println("입력값 = " + vo.getPw() + ", 디비값 = " + subVo.getPw());
-			if(vo.getPw().equals(subVo.getPw())) {
+			if(EncryptPw.equals(subVo.getPw())) {
 				return "main/main";
 			}else {
 				return "sub/sub";
