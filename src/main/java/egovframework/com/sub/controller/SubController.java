@@ -50,7 +50,7 @@ public class SubController {
 		System.out.println("---------- SubController signUpPage() sub/signUpPage.do ----------");
 				
 		model.addAttribute("subVo", new SubVo());
-		return "sub/signUp";
+		return "login/signUp";
 		
 	}
 	
@@ -97,7 +97,7 @@ public class SubController {
 		
 		if (result.hasErrors()) {
 			System.out.println("result Error : " + result.getFieldError().getDefaultMessage());
-			return "sub/signUp";
+			return "login/signUp";
 		}
 		
 		
