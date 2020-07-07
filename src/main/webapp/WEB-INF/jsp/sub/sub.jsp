@@ -15,11 +15,15 @@
 	<br/>
 	<div>
 		SUB TEST PAGE <br/>
-	<form:form action = "/sub/subs.do" method = "post" modelAttribute="subVo">
-		<form:input type = "text" path="userId" size="20"/>
-		<form:errors path="userId"/>
+	<form:form action = "/sub/login.do" method = "post" modelAttribute="subVo">
+		<label>아이디 : </label>
+		<form:input type = "text" path="email" size="20"/>
+		<form:errors path="email"/>
 		<br/>
-		
+		<label>비밀번호 : </label>
+		<form:input type = "password" path="pw" size="20"/>
+		<form:errors path="pw"/>
+		<br/>
 		<input type = "submit" value = "전송">
 	</form:form>
 		

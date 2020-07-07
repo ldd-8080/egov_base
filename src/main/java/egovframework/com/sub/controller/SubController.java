@@ -1,5 +1,6 @@
 package egovframework.com.sub.controller;
 
+import javax.annotation.Resource;
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
@@ -9,12 +10,16 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import egovframework.com.sub.service.SubService;
 import egovframework.com.sub.vo.SubVo;
 
 @Controller
 @RequestMapping(value = "/sub")
 public class SubController {
 
+	@Resource(name = "subService")
+	private SubService subService;
+	
 	@RequestMapping(value = "/sub.do")
 	public String test(ModelMap model) {
 		System.out.println("---------- SubController test() sub/sub.do ----------");
@@ -27,7 +32,7 @@ public class SubController {
 	//@ModelAttribute는 생략해도  무관하나 명시적으로 붙여는것이 좋
 	public String test2(@ModelAttribute @Valid SubVo vo, BindingResult result) {
 		System.out.println("---------- SubController test2() sub/subs.do ----------");
-		System.out.println("vo userId : " + vo.getUserId());
+		System.out.println("vo userId : " + vo.getEmail());
 		
 		if (result.hasErrors()) {
 			System.out.println("result Error : " + result.getFieldError().getDefaultMessage());
@@ -38,5 +43,27 @@ public class SubController {
 	}
 	
 	
-	
+	@RequestMapping(value = "/login.do")
+	public String login(@ModelAttribute @Valid SubVo vo, BindingResult result, ModelMap model) throws Exception {
+		System.out.println("---------- SubController login() sub/login.do ----------");
+		
+		if (result.hasErrors()) {
+			System.out.println("result Error : " + result.getFieldError().getDefaultMessage());
+			return "sub/sub";
+		}
+		
+		SubVo subVo = subService.login(vo);
+		
+		if(subVo.getEmail() == null || subVo.getEmail().isEmpty()) {
+			return "sub/sub";
+		}else {
+			System.out.println("입력값 = " + vo.getPw() + ", 디비값 = " + subVo.getPw());
+			if(vo.getPw().equals(subVo.getPw())) {
+				return "main/main";
+			}else {
+				return "sub/sub";
+			}
+				
+		}
+	}
 }

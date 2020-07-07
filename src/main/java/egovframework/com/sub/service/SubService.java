@@ -1,5 +1,7 @@
 package egovframework.com.sub.service;
 
-public interface SubService {
+import egovframework.com.sub.vo.SubVo;
 
+public interface SubService {
+	SubVo login(SubVo vo) throws Exception;
 }
