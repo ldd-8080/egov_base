@@ -10,6 +10,13 @@
 	  	<put-attribute name="left"    	value="/WEB-INF/jsp/tiles/left.jsp" />
 	  	<put-attribute name="body"    	value="" />
 	  	<put-attribute name="footer"   	value="/WEB-INF/jsp/tiles/footer.jsp" />
+	  	<put-attribute name="scripts"  	value="/WEB-INF/jsp/tiles/scripts.jsp" />
+	</definition>
+	
+	<definition name="layouts-tiles-login" template="/WEB-INF/tiles/template-login.jsp">
+		<put-attribute name="header"    value="/WEB-INF/jsp/tiles/header.jsp" />
+		<put-attribute name="body"    	value="/WEB-INF/jsp/login/login.jsp" />
+		<put-attribute name="scripts"  	value="/WEB-INF/jsp/tiles/scripts.jsp" />
 	</definition>
 	
 	<definition name="*" extends="layouts-tiles">
@@ -26,5 +33,8 @@
 	
 	<definition name="*/*/*/*" extends="layouts-tiles">
 	  	<put-attribute name="body" value="/WEB-INF/jsp/{1}/{2}/{3}/{4}.jsp" />
+	</definition>
+	
+	<definition name="login/login" extends="layouts-tiles-login">
 	</definition>
 </tiles-definitions>

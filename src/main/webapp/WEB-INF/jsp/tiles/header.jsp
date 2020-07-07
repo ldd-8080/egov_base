@@ -1,11 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%-- 
-<link href="${pageContext.request.contextPath}/css/styles.css" rel="stylesheet" />
-<script src="${pageContext.request.contextPath}/js/scripts.js"></script>
-<script src="${pageContext.request.contextPath}/js/chart-bar-demo.js"></script> 
---%>
-
         
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -35,6 +29,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/jvectormap/jquery-jvectormap.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/chartist-plugin-tooltip/chartist-plugin-tooltip.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/dashboard/v1.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/pages/login-v3.css">
 
 
 <!-- Fonts -->
