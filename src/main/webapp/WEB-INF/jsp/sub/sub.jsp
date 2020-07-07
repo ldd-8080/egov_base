@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,6 +16,11 @@
 	<br/>
 	<div>
 		SUB TEST PAGE <br/>
+		
+	<c:if test = "${not empty login}">
+		<h1>로그인중입니다</h1>
+	</c:if>
+	<c:if test = "${empty login }">
 	<form:form action = "/sub/login.do" method = "post" modelAttribute="subVo">
 		<label>아이디 : </label>
 		<form:input type = "text" path="email" size="20"/>
@@ -26,7 +32,7 @@
 		<br/>
 		<input type = "submit" value = "전송">
 	</form:form>
-		
+		</c:if>
 	</div>
 </body>
 </html>

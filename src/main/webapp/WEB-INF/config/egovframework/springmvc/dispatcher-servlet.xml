@@ -84,6 +84,13 @@
        </mvc:interceptor>
     </mvc:interceptors>
 
+    <mvc:interceptors>
+       <mvc:interceptor>
+           <mvc:mapping path="/sub/login.do"/>
+           <bean  class="egovframework.com.cmmn.interceptor.LoginInterceptor"/>
+       </mvc:interceptor>
+    </mvc:interceptors>
+    
 
 
 </beans>

@@ -1,6 +1,7 @@
 package egovframework.com.sub.controller;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
@@ -64,8 +65,8 @@ public class SubController {
 		if(subVo == null) {
 			return "sub/sub";
 		}else {
-			System.out.println("입력값 = " + vo.getPw() + ", 디비값 = " + subVo.getPw());
 			if(EncryptPw.equals(subVo.getPw())) {
+				model.addAttribute("user", subVo);
 				return "main/main";
 			}else {
 				return "sub/sub";
@@ -73,4 +74,19 @@ public class SubController {
 				
 		}
 	}
+	
+
+	@RequestMapping(value = "/logout.do", method = RequestMethod.GET)
+	//@ModelAttribute는 생략해도  무관하나 명시적으로 붙여는것이 좋
+	public String logout(HttpSession session) {
+		System.out.println("---------- SubController logout() sub/logout.do ----------");
+		
+		 session.invalidate();
+		
+		
+		return "main/main";
+	}
+	
+	
+	
 }
