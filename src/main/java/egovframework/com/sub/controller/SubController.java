@@ -54,7 +54,12 @@ public class SubController {
 		
 	}
 	
-	
+	@RequestMapping(value = "/loginPage.do")
+	public String loginPage(ModelMap model) {
+		model.addAttribute("subVo", new SubVo());
+
+		return "login/login";
+	}
 	
 	@RequestMapping(value = "/login.do")
 	public String login(@ModelAttribute @Valid SubVo vo, BindingResult result, ModelMap model) throws Exception {
