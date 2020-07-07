@@ -54,7 +54,7 @@ public class SubController {
 		
 		SubVo subVo = subService.login(vo);
 		
-		if(subVo.getEmail() == null || subVo.getEmail().isEmpty()) {
+		if(subVo == null) {
 			return "sub/sub";
 		}else {
 			System.out.println("입력값 = " + vo.getPw() + ", 디비값 = " + subVo.getPw());
