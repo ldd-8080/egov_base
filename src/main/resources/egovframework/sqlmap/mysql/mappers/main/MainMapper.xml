@@ -4,6 +4,6 @@
 	namespace="egovframework.com.main.mapper.MainMapper">
 	
 	<select id="selectDummyList" resultType="Map">
-		select * from test.dummy
+		select * from out_user;
 	</select>
 </mapper>
