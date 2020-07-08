@@ -12,7 +12,7 @@
     </button>
     <div class="navbar-brand navbar-brand-center site-gridmenu-toggle" data-toggle="gridmenu">
       <img class="navbar-brand-logo" src="${pageContext.request.contextPath}/images/logo.png" title="Remark">
-      <span class="navbar-brand-text hidden-xs-down"> Remark</span>
+      <span class="navbar-brand-text hidden-xs-down"> Daul</span>
     </div>
     <button type="button" class="navbar-toggler collapsed" data-target="#site-navbar-search"
       data-toggle="collapse">

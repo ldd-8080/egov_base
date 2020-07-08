@@ -1,15 +1,71 @@
-<div class="site-menubar">
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+    
+    <div class="site-menubar">
   <div class="site-menubar-body">
     <div>
       <div>
         <ul class="site-menu" data-plugin="menu">
           <!-- <li class="site-menu-category">General</li> -->
-          <li class="site-menu-item active">
-            <a class="animsition-link" href="index.html">
+          <li class="site-menu-item has-sub">
+            <a class="animsition-link" href="/">
                 <i class="site-menu-icon md-view-dashboard" aria-hidden="true"></i>
                 <span class="site-menu-title">Dashboard</span>
             </a>
           </li>
+           <li class="site-menu-item has-sub">
+            <a class="animsition-link" href="/">              
+                <span class="site-menu-title">사용자관리</span>
+            </a>
+          </li>
+           <li class="site-menu-item has-sub">
+            <a class="animsition-link" href="/">              
+                <span class="site-menu-title">콘텐츠관리</span>
+            </a>
+          </li>
+             <li class="site-menu-item has-sub">
+                <a href="javascript:void(0)">
+                        <i class="site-menu-icon md-view-compact" aria-hidden="true"></i>
+                        <span class="site-menu-title">게시글 관리</span>
+                                <span class="site-menu-arrow"></span>
+                    </a>
+                <ul class="site-menu-sub">
+                  <li class="site-menu-item">
+                    <a class="animsition-link" href="/">
+                      <span class="site-menu-title">공지사항</span>
+                    </a>
+                  </li>
+                  <li class="site-menu-item">
+                    <a class="animsition-link" href="/">
+                      <span class="site-menu-title">Q&A</span>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+           <li class="site-menu-item has-sub">
+            <a class="animsition-link" href="/">              
+                <span class="site-menu-title">열린제안관리</span>
+            </a>
+          </li>
+           <li class="site-menu-item has-sub">
+            <a class="animsition-link" href="/">              
+                <span class="site-menu-title">설문조사관리</span>
+            </a>
+          </li>
+           <li class="site-menu-item has-sub">
+            <a class="animsition-link" href="/">              
+                <span class="site-menu-title">나눔공모관리</span>
+            </a>
+          </li>
+            <li class="site-menu-item has-sub">
+            <a class="animsition-link" href="/">              
+                <span class="site-menu-title">기록/통계</span>
+            </a>
+          </li>
+          
+          
         </ul>
       </div>
     </div>
@@ -27,61 +83,6 @@
       <span class="icon md-power" aria-hidden="true"></span>
     </a>
   </div>
-</div>    
+   
 
-<div class="site-gridmenu">
-  <div>
-    <div>
-      <ul>
-        <li>
-          <a href="apps/mailbox/mailbox.html">
-            <i class="icon md-email"></i>
-            <span>Mailbox</span>
-          </a>
-        </li>
-        <li>
-          <a href="apps/calendar/calendar.html">
-            <i class="icon md-calendar"></i>
-            <span>Calendar</span>
-          </a>
-        </li>
-        <li>
-          <a href="apps/contacts/contacts.html">
-            <i class="icon md-account"></i>
-            <span>Contacts</span>
-          </a>
-        </li>
-        <li>
-          <a href="apps/media/overview.html">
-            <i class="icon md-videocam"></i>
-            <span>Media</span>
-          </a>
-        </li>
-        <li>
-          <a href="apps/documents/categories.html">
-            <i class="icon md-receipt"></i>
-            <span>Documents</span>
-          </a>
-        </li>
-        <li>
-          <a href="apps/projects/projects.html">
-            <i class="icon md-image"></i>
-            <span>Project</span>
-          </a>
-        </li>
-        <li>
-          <a href="apps/forum/forum.html">
-            <i class="icon md-comments"></i>
-            <span>Forum</span>
-          </a>
-        </li>
-        <li>
-          <a href="index.html">
-            <i class="icon md-view-dashboard"></i>
-            <span>Dashboard</span>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
 </div>
