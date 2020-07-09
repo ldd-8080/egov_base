@@ -25,6 +25,11 @@ public class SubServieImpl extends EgovAbstractServiceImpl implements SubService
 		subMapper.signUp(vo);
 		
 	}
+	
+	@Override
+	public SubVo selectUser(SubVo vo) throws Exception{
+		return subMapper.selectUser(vo);
+	}
 
 
 }

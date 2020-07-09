@@ -10,6 +10,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import egovframework.com.cmmn.SecurityUtil;
 import egovframework.com.sub.service.SubService;
@@ -123,6 +124,17 @@ public class SubController {
 		return "main/main";
 	}
 	
-	
+	@RequestMapping(value = "/userDetailPage.do", method=RequestMethod.GET)
+	public String userDetailPage(ModelMap model, @RequestParam("Nickname") String nickname) throws Exception{
+		SubVo vo = new SubVo();
+		vo.setNickname(nickname);
+		System.out.println(vo.getNickname());
+		SubVo result = subService.selectUser(vo);
+		System.out.println(result);
+		
+		model.addAttribute("user", result);
+		
+		return "user/userDetail";
+	}
 	
 }

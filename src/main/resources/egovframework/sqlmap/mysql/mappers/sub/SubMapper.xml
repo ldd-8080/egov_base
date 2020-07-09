@@ -12,4 +12,10 @@
 		INSERT INTO out_user (email, pw, nickname, phone_num)
 		VALUES (#{email},#{pw},#{nickname},#{phone_num})
 	</insert>
+	
+	<select id="selectUser" resultType="egovframework.com.sub.vo.SubVo">
+		SELECT *
+		  FROM daul.out_user
+		 WHERE nickname = #{nickname}
+	</select>
 </mapper>

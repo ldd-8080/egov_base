@@ -30,9 +30,20 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/chartist-plugin-tooltip/chartist-plugin-tooltip.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/dashboard/v1.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/pages/login-v3.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/datatables.net-bs4/dataTables.bootstrap4.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/datatables.net-fixedheader-bs4/dataTables.fixedheader.bootstrap4.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/datatables.net-fixedcolumns-bs4/dataTables.fixedcolumns.bootstrap4.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/datatables.net-rowgroup-bs4/dataTables.rowgroup.bootstrap4.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/datatables.net-scroller-bs4/dataTables.scroller.bootstrap4.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/datatables.net-select-bs4/dataTables.select.bootstrap4.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/datatables.net-responsive-bs4/dataTables.responsive.bootstrap4.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/datatables.net-buttons-bs4/dataTables.buttons.bootstrap4.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/tables/datatable.css">
+    
 
 
 <!-- Fonts -->
+<link rel="stylesheet" href="${pageContext.request.contextPath}/font/font-awesome/font-awesome.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/font/material-design/material-design.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/font/brand-icons/brand-icons.min.css">
 <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic'>
@@ -51,3 +62,4 @@
 <script>
   Breakpoints();
 </script>
+<script src="${pageContext.request.contextPath}/js/jquery/jquery.js"></script>

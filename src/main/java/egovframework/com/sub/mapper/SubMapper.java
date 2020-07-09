@@ -7,4 +7,5 @@ import egovframework.rte.psl.dataaccess.mapper.Mapper;
 public interface SubMapper {
 	SubVo selectLoginCheck(SubVo vo) throws Exception;
 	void  signUp(SubVo vo) throws Exception;
+	SubVo selectUser(SubVo vo) throws Exception;
 }

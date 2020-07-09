@@ -20,54 +20,35 @@
 		          <h3 class="panel-title">Basic</h3>
 		        </header>
 		        <div class="panel-body">
-		          <table class="table table-hover dataTable table-striped w-full" data-plugin="dataTable">
+		          <table class="table table-hover dataTable table-striped w-full" id="userTable" data-plugin="dataTable">
 		            <thead>
 		              <tr>
-		                <th>Name</th>
-		                <th>Position</th>
-		                <th>Office</th>
-		                <th>Age</th>
-		                <th>Date</th>
-		                <th>Salary</th>
+		                <th>Seq</th>
+		                <th>Email</th>
+		                <th>Pw</th>
+		                <th>Nickname</th>
+		                <th>Phone</th>
 		              </tr>
 		            </thead>
 		            <tfoot>
 		              <tr>
-		                <th>Name</th>
-		                <th>Position</th>
-		                <th>Office</th>
-		                <th>Age</th>
-		                <th>Date</th>
-		                <th>Salary</th>
+		                <th>Seq</th>
+		                <th>Email</th>
+		                <th>Pw</th>
+		                <th>Nickname</th>
+		                <th>Phone</th>
 		              </tr>
 		            </tfoot>
 		            <tbody>
 		            	<c:forEach var="result" items="${resultList}">
 		            	<tr>
-		            		<td>${result.name}</td>
-		            		<td>${result.position}</td>
-		            		<td>${result.office}</td>
-		            		<td>${result.age}</td>
-		            		<td>${result.startDate}</td>
-		            		<td>${result.salary}</td>
+		            		<td>${result.user_seq}</td>
+		            		<td>${result.email}</td>
+		            		<td>${result.pw}</td>
+		            		<td>${result.nickname}</td>
+		            		<td>${result.phone_num}</td>
 	            		</tr>
 		            	</c:forEach>
-		              <tr>
-		                <td>Damon</td>
-		                <td>5516 Adolfo Green</td>
-		                <td>Littelhaven</td>
-		                <td>85</td>
-		                <td>2014/06/13</td>
-		                <td>$553,536</td>
-		              </tr>
-		              <tr>
-		                <td>Torrey</td>
-		                <td>1995 Richie Neck</td>
-		                <td>West Sedrickstad</td>
-		                <td>77</td>
-		                <td>2014/09/12</td>
-		                <td>$243,577</td>
-		              </tr>
 		            </tbody>
 		          </table>
 		        </div>
@@ -76,3 +57,10 @@
 	</div>
 <!-- End Page -->
 </div>
+<script type="text/javascript">
+$("#userTable tr").click(function() {
+	console.log($(this));
+	var nickname = $(this).children().eq(3).text();
+	location.href = "${pageContext.request.contextPath}/sub/userDetailPage.do?Nickname=" + nickname;
+});
+</script>
