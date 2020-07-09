@@ -15,9 +15,15 @@ public class SubVo {
 	private String key = "daul";
 	private boolean useCookie;
 	private String user_seq;
+	private String status;
 	
 	
-	
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
 	public String getUser_seq() {
 		return user_seq;
 	}

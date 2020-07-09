@@ -15,7 +15,15 @@ public class UserVo {
 	private String pwCheck;
 	private String key = "daul";
 	private boolean useCookie;
+	private String status;
 	
+	
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
 	
 	public String getUser_seq() {
 		return user_seq;
