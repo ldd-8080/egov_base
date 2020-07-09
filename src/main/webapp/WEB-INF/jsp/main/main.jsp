@@ -2,11 +2,17 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
     
+<script type="text/javascript">
+/* $(document).ready(function() {
+	$("#userTable").DataTable();
+}); */
+</script>
+    
 <!-- Page -->
 <div class="page">
 	<div class="page-content container-fluid">
 	    <!-- Page -->
-	    <h1 class="page-title">Jenkins</h1>
+	    <h1 class="page-title">Jenkins2</h1>
 	    <ol class="breadcrumb">
 	      <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
 	      <li class="breadcrumb-item"><a href="javascript:void(0)">Tables</a></li>
@@ -31,9 +37,9 @@
 		              </tr>
 		            </thead>
 		            <tbody>
-		            	<c:forEach var="result" items="${resultList}">
+		            	<c:forEach var="result" items="${resultList}" varStatus="status">
 		            	<tr>
-		            		<td>${result.user_seq}</td>
+		            		<td id="seq_${status.index}">${result.user_seq}</td>
 		            		<td>${result.email}</td>
 		            		<td>${result.pw}</td>
 		            		<td>${result.nickname}</td>
@@ -49,12 +55,13 @@
 <!-- End Page -->
 </div>
 <script type="text/javascript">
-$("#userTable tr").click(function() {
-	console.log($(this));
-	if ($(this).get(0).rowIndex !== 0) {
-		var nickname = $(this).children().eq(3).text();
-		location.href = "${pageContext.request.contextPath}/sub/userDetailPage.do?Nickname=" + nickname;
-	}
-});
+	$("#userTable tr td").click(function(event) {
+		if ($(this).get(0).cellIndex === 0) {
+		} else {
+			var nickname = $(this).parent().children().eq(3).text();
+			
+			location.href = "${pageContext.request.contextPath}/sub/userDetailPage.do?Nickname=" + nickname;
+		}
+	});
 
 </script>
