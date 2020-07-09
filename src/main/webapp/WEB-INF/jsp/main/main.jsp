@@ -6,7 +6,7 @@
 <div class="page">
 	<div class="page-content container-fluid">
 	    <!-- Page -->
-	    <h1 class="page-title">DataTables</h1>
+	    <h1 class="page-title">Jenkins</h1>
 	    <ol class="breadcrumb">
 	      <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
 	      <li class="breadcrumb-item"><a href="javascript:void(0)">Tables</a></li>
@@ -30,15 +30,6 @@
 		                <th>Phone</th>
 		              </tr>
 		            </thead>
-		            <tfoot>
-		              <tr>
-		                <th>Seq</th>
-		                <th>Email</th>
-		                <th>Pw</th>
-		                <th>Nickname</th>
-		                <th>Phone</th>
-		              </tr>
-		            </tfoot>
 		            <tbody>
 		            	<c:forEach var="result" items="${resultList}">
 		            	<tr>
@@ -60,7 +51,10 @@
 <script type="text/javascript">
 $("#userTable tr").click(function() {
 	console.log($(this));
-	var nickname = $(this).children().eq(3).text();
-	location.href = "${pageContext.request.contextPath}/sub/userDetailPage.do?Nickname=" + nickname;
+	if ($(this).get(0).rowIndex !== 0) {
+		var nickname = $(this).children().eq(3).text();
+		location.href = "${pageContext.request.contextPath}/sub/userDetailPage.do?Nickname=" + nickname;
+	}
 });
+
 </script>
