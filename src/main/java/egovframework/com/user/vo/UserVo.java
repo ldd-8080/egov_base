@@ -1,21 +1,20 @@
-package egovframework.com.sub.vo;
+package egovframework.com.user.vo;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-public class SubVo {
-	
+public class UserVo {
+
 	@NotNull
 	@Size(min=1, max=30, message="userId not null")
 	private String email;
+	private String user_seq;
 	private String pw;
 	private String phone_num;
 	private String nickname;
 	private String pwCheck;
 	private String key = "daul";
 	private boolean useCookie;
-	private String user_seq;
-	
 	
 	
 	public String getUser_seq() {
@@ -69,7 +68,6 @@ public class SubVo {
 	public String getPwKey() {
 		return getPw() + getKey();
 	}
-	
 	
 	
 }

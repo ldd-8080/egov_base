@@ -132,7 +132,7 @@ public class SubController {
 		SubVo result = subService.selectUser(vo);
 		System.out.println(result);
 		
-		model.addAttribute("user", result);
+		model.addAttribute("userVo", result);
 		
 		return "user/userDetail";
 	}
