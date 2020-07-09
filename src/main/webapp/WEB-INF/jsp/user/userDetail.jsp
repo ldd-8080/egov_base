@@ -29,12 +29,7 @@
 	    				<form:input type="text" class="form-control" path="email" value="${userVo.email}"/>
 	    			</div>
 	    		</div>
-	    		<div class="form-group form-material row">
-	    			<label class="col-md-3 col-form-label">Pw</label>
-	    			<div class="col-md-4">
-	    				<form:input type="text" class="form-control" path="pw" value="${userVo.pw}"/>
-	    			</div>
-	    		</div>
+	    	
 	    		<div class="form-group form-material row">
 	    			<label class="col-md-3 col-form-label">Nickname</label>
 	    			<div class="col-md-4">
