@@ -16,8 +16,15 @@ public class SubVo {
 	private boolean useCookie;
 	private String user_seq;
 	private String status;
+	private String file;
 	
 	
+	public String getFile() {
+		return file;
+	}
+	public void setFile(String file) {
+		this.file = file;
+	}
 	public String getStatus() {
 		return status;
 	}

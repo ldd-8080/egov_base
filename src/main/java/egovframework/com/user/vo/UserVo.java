@@ -16,8 +16,16 @@ public class UserVo {
 	private String key = "daul";
 	private boolean useCookie;
 	private String status;
+	private String file;
 	
 	
+	
+	public String getFile() {
+		return file;
+	}
+	public void setFile(String file) {
+		this.file = file;
+	}
 	public String getStatus() {
 		return status;
 	}
