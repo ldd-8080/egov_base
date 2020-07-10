@@ -31,7 +31,7 @@
                     </a>
                 <ul class="site-menu-sub">
                   <li class="site-menu-item">
-                    <a class="animsition-link" href="/">
+                    <a class="animsition-link" href="/board/boardList.do">
                       <span class="site-menu-title">공지사항</span>
                     </a>
                   </li>

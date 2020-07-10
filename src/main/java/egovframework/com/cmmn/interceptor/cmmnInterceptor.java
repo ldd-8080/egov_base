@@ -5,8 +5,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+
+import egovframework.com.user.vo.UserVo;
 
 public class cmmnInterceptor extends HandlerInterceptorAdapter {
 
@@ -32,7 +35,22 @@ public class cmmnInterceptor extends HandlerInterceptorAdapter {
 		
 		if(log.isDebugEnabled()) {
 			log.debug(" ============= end ==============");
-			log.debug("Response viewName : " + modelAndView.getViewName());
+			if (modelAndView != null) {
+				log.debug("Response viewName : " + modelAndView.getViewName());
+			}
+		}
+		if (modelAndView == null) {
+			modelAndView = new ModelAndView();
+			modelAndView.addObject("userVo", new UserVo());
+		}
+		
+		ModelMap model = modelAndView.getModelMap();
+		
+		if (!model.containsAttribute("userVo")) {
+//			ModelMap userModel = new ModelMap();
+//			userModel.addAttribute("userVo", new UserVo());
+			modelAndView.addObject("userVo", new UserVo());
+			//modelAndView.addObject(userModel);
 		}
 		
 		super.postHandle(request, response, handler, modelAndView);

@@ -19,15 +19,15 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
 		
-		HttpSession httpSession = request.getSession();
-		ModelMap modelMap = modelAndView.getModelMap();
-		Object subVo = modelMap.get("user");
-		
-		if(subVo != null) {
-			log.debug("new login success");
-			httpSession.setAttribute(LOGIN, subVo);
-			response.sendRedirect("/");
-		}
+//		HttpSession httpSession = request.getSession();
+//		ModelMap modelMap = modelAndView.getModelMap();
+//		Object subVo = modelMap.get("user");
+//		
+//		if(subVo != null) {
+//			log.debug("new login success");
+//			httpSession.setAttribute(LOGIN, subVo);
+//			response.sendRedirect("/");
+//		}
 	}
 	
 	@Override

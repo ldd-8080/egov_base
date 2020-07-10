@@ -42,44 +42,23 @@
 
       <!-- Navbar Toolbar Right -->
       <ul class="nav navbar-toolbar navbar-right navbar-toolbar-right">
-        <%-- <li class="nav-item dropdown">
-          <a class="nav-link navbar-avatar" data-toggle="dropdown" href="#" aria-expanded="false"
-            data-animation="scale-up" role="button">
-            <span class="avatar avatar-online">
-              <img src="${pageContext.request.contextPath}/images/5.jpg" alt="...">
-              <i></i>
-            </span>
-          </a>
-          <div class="dropdown-menu" role="menu">
-            <a class="dropdown-item" href="javascript:void(0)" role="menuitem"><i class="icon md-account" aria-hidden="true"></i> Profile</a>
-            <a class="dropdown-item" href="javascript:void(0)" role="menuitem"><i class="icon md-card" aria-hidden="true"></i> Billing</a>
-            <a class="dropdown-item" href="javascript:void(0)" role="menuitem"><i class="icon md-settings" aria-hidden="true"></i> Settings</a>
-            <div class="dropdown-divider" role="presentation"></div>
-            <a class="dropdown-item" href="javascript:void(0)" role="menuitem"><i class="icon md-power" aria-hidden="true"></i> Logout</a>
-          </div>
-        </li> --%>
         <c:if test="${not empty login}">
         	<li class="nav-item hidden-float">
 	        	<span class="nav-link"><c:out value="${login.email}"/></span>
         	</li>
         	<li class="nav-item hidden-float" id="testLoginBtn">
-	        	<a class="nav-link" data-toggle="loginBtn" href="/sub/logout.do" role="button">
+	        	<a class="nav-link" data-toggle="loginBtn" href="/login/logout.do" role="button">
 	        		<i class="icon md-power"></i> Logout
 	        	</a>
 	        </li>
         </c:if>
         <c:if test="${empty login}">
-	        <li class="nav-item hidden-float" id="testLoginBtn">
-	        	<a class="nav-link" data-toggle="loginBtn" href="/sub/loginPage.do" role="button">
-	        		<i class="icon md-power"></i> Login
-	        	</a>
+	        <li class="nav-item hidden-float">
+	        	<a class="nav-link" data-toggle="modal" data-target="#examplePositionCenter" href="#" role="button">
+		       		<i class="icon md-power"></i> Login
+		       	</a>
 	        </li>
         </c:if>
-        <li class="nav-item hidden-float">
-        	<a class="nav-link" data-toggle="modal" data-target="#examplePositionCenter" href="#" role="button">
-	       		<i class="icon md-power"></i> Login
-	       	</a>
-        </li>
       </ul>
       <!-- End Navbar Toolbar Right -->
     </div>
@@ -101,19 +80,6 @@
     <!-- End Site Navbar Seach -->
   </div>
 </nav>
-<!-- Modal -->
-<!-- <div class="modal" id="examplePositionCenter">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h4 class="modal-title">Modal Header</h4>
-				<button type="button" class="close" data-dismiss="modal">X</button>
-			</div>
-		</div>
-	</div>
-</div> -->
-<!-- End Modal -->
-<!-- Modal -->
 <div class="modal fade" id="examplePositionCenter" aria-hidden="true" aria-labelledby="examplePositionCenter" role="dialog" tabindex="-1">
   <div class="modal-dialog modal-simple modal-center">
     <div class="modal-content">
@@ -124,21 +90,6 @@
         <h4 class="modal-title">Modal Title</h4>
       </div>
       <div class="modal-body">
-      	<!-- <div class="vertical-align text-center" data-animsition-in="fade-in" data-animsition-out="fade-out">>
-		    	<div class="panel-body">
-		    		<form>
-		    			<div class="form-group form-material floating" data-plugin="formMaterial">
-				          <input type="text" class="form-control"/>
-				          <label class="floating-label">Id</label>
-				        </div>
-				        <div class="form-group form-material floating" data-plugin="formMaterial">
-	        		<input type="text" class="form-control"/>
-	        		<label class="floating-label">Password</label>
-	        	</div>
-	        	<button type="submit" class="btn btn-primary btn-block btn-lg mt-40">Sign in</button>
-		    		</form>
-		    	</div>
-      	</div> -->
         <form id="nav-login-form">
         	<div class="form-group form-material floating" data-plugin="formMaterial">
         		<input type="text" class="form-control" name="email"/>
@@ -161,12 +112,7 @@
 <!-- End Modal -->
 
 <script type="text/javascript">
-	//var formObj = $("#nav-login-form");
-
 	$("#nav-login-btn").click(function() {
-		/* formObj.attr("action", "/login/login.do");
-		formObj.attr("method", "post");
-		formObj.submit(); */
 		
 		var request = $.ajax({
 			url: "/login/login.do",
@@ -177,7 +123,13 @@
 		});
 		request.done(function(data) {
 			console.log(data);
-			console.log("request doen");
+			console.log("request done");
+			
+			if (data === "success") {
+				location.href = "${pageContext.request.contextPath}/main/main.do";
+			} else {
+				alert(data);
+			}
 		});
 		request.fail(function(error) {
 			console.log(error);

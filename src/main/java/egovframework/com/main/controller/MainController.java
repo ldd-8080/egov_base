@@ -10,7 +10,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import egovframework.com.main.service.MainService;
-import egovframework.com.sub.vo.SubVo;
+import egovframework.com.user.vo.UserVo;
 
 @Controller
 @RequestMapping(value = "/main/*")
@@ -30,7 +30,6 @@ public class MainController {
 			System.out.println("dummyList >>> " + dummyList);
 			
 			model.addAttribute("resultList", dummyList);
-			model.addAttribute("subVo", new SubVo());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -1,15 +1,15 @@
 package egovframework.com.login.controller;
 
 import javax.annotation.Resource;
-import javax.validation.Valid;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -28,30 +28,34 @@ public class LoginController {
 	@Resource(name="loginService")
 	private LoginService loginService;
 	
-	@SuppressWarnings("rawtypes")
 	@RequestMapping(value="/login.do", method=RequestMethod.POST)
 	@ResponseBody
-	public ResponseEntity login(@ModelAttribute @Valid UserVo vo, BindingResult result, ModelMap model) throws Exception {
-		if (result.hasErrors()) {
-			log.debug("Valid Error : " + result.getFieldError().getDefaultMessage());
-			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(result.getAllErrors());
+	public ResponseEntity login(@ModelAttribute UserVo vo, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		UserVo userVo = loginService.login(vo);
+		
+		if (userVo == null) {
+			// 존재하지 않는 사용자
+			return new ResponseEntity<>("id or password is not correct.", HttpStatus.OK);
 		} else {
-			UserVo userVo = loginService.login(vo);
-			
 			SecurityUtil securityUtil = new SecurityUtil();
 			String encryptPw = securityUtil.encryptSHA256(vo.getPwKey());
 			
-			if (userVo == null) {
-				return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+			if (encryptPw.equals(userVo.getPw())) {
+				HttpSession httpSession = request.getSession();
+				httpSession.setAttribute("login", userVo);
+				
+				return new ResponseEntity<>("success", HttpStatus.OK);
 			} else {
-				if (encryptPw.equals(userVo.getPw())) {
-					model.addAttribute("user", userVo);
-					
-					return ResponseEntity.status(HttpStatus.OK).body(userVo);
-				} else {
-					return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
-				}
+				// 비번 틀림 
+				return new ResponseEntity<>("id or password is not correct.", HttpStatus.OK);
 			}
 		}
+	}
+	
+	@RequestMapping(value="/logout.do")
+	public String logout(HttpSession session) throws Exception {
+		session.invalidate();
+		//response.sendRedirect(request.getContextPath() + "/main/main.do");
+		return "redirect:/main/main.do";
 	}
 }

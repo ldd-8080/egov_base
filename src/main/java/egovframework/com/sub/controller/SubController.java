@@ -75,6 +75,7 @@ public class SubController {
 		
 		if (result.hasErrors()) {
 			System.out.println("result Error : " + result.getFieldError().getDefaultMessage());
+			//model.addAttribute("subVo", new SubVo());
 			return "sub/sub";
 		}
 		
