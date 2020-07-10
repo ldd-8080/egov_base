@@ -15,7 +15,13 @@
 	
 	<definition name="layouts-tiles-login" template="/WEB-INF/tiles/template-login.jsp">
 		<put-attribute name="header"    value="/WEB-INF/jsp/tiles/header.jsp" />
-		<put-attribute name="body"    	value="/WEB-INF/jsp/login/login.jsp" />
+		<put-attribute name="body"    	value="" />
+		<put-attribute name="scripts"  	value="/WEB-INF/jsp/tiles/scripts.jsp" />
+	</definition>
+	
+	<definition name="layouts-tiles-signUp" template="/WEB-INF/tiles/template-signUp.jsp">
+		<put-attribute name="header"    value="/WEB-INF/jsp/tiles/header.jsp" />
+		<put-attribute name="body"    	value="" />
 		<put-attribute name="scripts"  	value="/WEB-INF/jsp/tiles/scripts.jsp" />
 	</definition>
 	
@@ -36,5 +42,10 @@
 	</definition>
 	
 	<definition name="login/login" extends="layouts-tiles-login">
+		<put-attribute name="body"    	value="/WEB-INF/jsp/login/login.jsp" />
+	</definition>
+	
+	<definition name="login/signUp" extends="layouts-tiles-signUp">
+		<put-attribute name="body"    	value="/WEB-INF/jsp/login/signUp.jsp" />
 	</definition>
 </tiles-definitions>

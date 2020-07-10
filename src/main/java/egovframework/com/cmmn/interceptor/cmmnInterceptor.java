@@ -31,8 +31,8 @@ public class cmmnInterceptor extends HandlerInterceptorAdapter {
 		// TODO Auto-generated method stub
 		
 		if(log.isDebugEnabled()) {
-			log.debug(" ============= end ==============\n\n");
-			
+			log.debug(" ============= end ==============");
+			log.debug("Response viewName : " + modelAndView.getViewName());
 		}
 		
 		super.postHandle(request, response, handler, modelAndView);

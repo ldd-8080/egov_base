@@ -39,7 +39,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/datatables.net-responsive-bs4/dataTables.responsive.bootstrap4.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/datatables.net-buttons-bs4/dataTables.buttons.bootstrap4.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/tables/datatable.css">
-    
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/pages/register-v3.css">
 
 
 <!-- Fonts -->
