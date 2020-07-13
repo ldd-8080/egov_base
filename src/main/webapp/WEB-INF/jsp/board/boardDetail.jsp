@@ -88,24 +88,7 @@
    
   function fn_downloadFile(obj){
 	  var idx = obj.parent().find("#IDX").val();
-	var form = {
-			"idx":idx
-		}
-	
-	$.ajax({
-		  type:'POST',
-		  url:'/board/downloadFile.do',
-		  data :form,
-		  async : false,
-		  Type:"POST",
-		  success: function(json){
-			  alert("aaaaaaaaAA")
-		  },
-		  error : function(xhr,status,error){
-			  alert(error)
-			  console.log(error);
-		  },
-		  });
+	  location.href = "${pageContext.request.contextPath}/board/downloadFile.do?idx=" + idx;
   }
 </script>
 

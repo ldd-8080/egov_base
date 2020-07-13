@@ -98,27 +98,28 @@ public class BoardController {
         return "board/boardList";
     }
 	
-	@RequestMapping(value="/downloadFile.do")
-	public void downloadFile(HttpServletRequest requeset, HttpServletResponse response) throws Exception{
+	@RequestMapping(value="/downloadFile.do",method = RequestMethod.GET)
+	public void downloadFile(HttpServletRequest requeset, HttpServletResponse response, @RequestParam("idx") String idx) throws Exception{
 		System.out.println(requeset.getParameter("idx"));
 		BoardVo boardVo = new BoardVo();
 		boardVo.setFile_idx(requeset.getParameter("idx"));
 		BoardVo vo = new BoardVo();
+		vo.setFile_idx(idx);
 		vo = boardService.selectDownloadFile(boardVo);
 		String stored_File_Name = vo.getSave_file_name();
 		String original_File_Name = vo.getOrg_file_name();
 		System.out.println("stored_File_Name = " + stored_File_Name + ", original_File_Name = " + original_File_Name);
 		
-		  byte[] fileByte = FileUtils.readFileToByteArray(new File("/Users/a2/attach/"+ stored_File_Name));
+		byte[] fileByte = FileUtils.readFileToByteArray(new File("/Users/a2/attach/"+ stored_File_Name));
 	         
-	        response.setContentType("application/octet-stream");
-	        response.setContentLength(fileByte.length);
-	        response.setHeader("Content-Disposition", "attachment; fileName=\"" + URLEncoder.encode(original_File_Name,"UTF-8")+"\";");
-	        response.setHeader("Content-Transfer-Encoding", "binary");
-	        response.getOutputStream().write(fileByte);
-	          
-	        response.getOutputStream().flush();
-	        response.getOutputStream().close();
+        response.setContentType("application/octet-stream");
+        response.setContentLength(fileByte.length);
+        response.setHeader("Content-Disposition", "attachment; fileName=\"" + URLEncoder.encode(original_File_Name,"UTF-8")+"\";");
+        response.setHeader("Content-Transfer-Encoding", "binary");
+        response.getOutputStream().write(fileByte);	          
+        response.getOutputStream().flush();
+        response.getOutputStream().close();
+	        
 		
 	}
 	
