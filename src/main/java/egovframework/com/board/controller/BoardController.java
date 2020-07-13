@@ -21,6 +21,7 @@ import egovframework.com.board.service.BoardService;
 import egovframework.com.board.vo.BoardVo;
 import egovframework.com.cmmn.interceptor.cmmnInterceptor;
 import egovframework.com.sub.vo.SubVo;
+import egovframework.com.user.vo.UserVo;
 @Controller
 @RequestMapping(value = "/board")
 public class BoardController {
@@ -49,8 +50,10 @@ public class BoardController {
 		BoardVo result = boardService.selectBoard(vo);
 		System.out.println(result);
 		
+		List<Map<String, String>> boardFile  = boardService.selectBoardFile(vo);
+		System.out.println(boardFile);
 		model.addAttribute("boardVo", result);
-		
+		model.addAttribute("boardFile", boardFile);
 		return "board/boardDetail";
 	}
 	
@@ -65,10 +68,9 @@ public class BoardController {
     		throws Exception {
        System.out.println("11111111111111" + vo.getTitle());
       
-       System.out.println(session.getAttribute("login"));
-       SubVo subVo = (SubVo) session.getAttribute("login");
-       System.out.println("user_seq === " + subVo.getUser_seq());
+       UserVo userVo = (UserVo) session.getAttribute("login");
        
+       vo.setReg_user(userVo.getUser_seq());
        boardService.insertBoard(vo,file);
        
         //boardService.insertBoard(commandMap);
@@ -80,7 +82,7 @@ public class BoardController {
             log.debug("content type: "+file[i].getContentType());
             log.debug("================== file   END ==================");
         }
-        
+         
         try {
 			List<Map<String, String>> boardList = boardService.selectBoardList();
 			model.addAttribute("resultList",boardList);

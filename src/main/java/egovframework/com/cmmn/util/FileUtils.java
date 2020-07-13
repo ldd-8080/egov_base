@@ -26,7 +26,7 @@ public class FileUtils {
  
     public List<Map<String, Object>> parseFileInfo(BoardVo vo, MultipartFile[] file) throws Exception {
 
-        String boardIDX = String.valueOf(vo.getTitle());
+        String boardIDX = String.valueOf(vo.getBoard_idx());
         String creaID = (String) vo.getReg_user();
         
         List<Map<String, Object>> fileList = new ArrayList<Map<String, Object>>();

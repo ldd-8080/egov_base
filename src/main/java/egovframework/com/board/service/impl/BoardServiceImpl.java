@@ -30,6 +30,17 @@ public class BoardServiceImpl extends EgovAbstractServiceImpl implements BoardSe
 		return list;
 		
 	}
+	
+	@Override
+	public List<Map<String,String>> selectBoardFile(BoardVo vo) throws Exception{
+		List<Map<String,String>> list = new ArrayList();
+		
+		list = boardMapper.selectBoardFile(vo);
+		
+		return list;
+		
+	}
+	
 
 	@Override
 	public BoardVo selectBoard(BoardVo vo) throws Exception{
@@ -38,10 +49,11 @@ public class BoardServiceImpl extends EgovAbstractServiceImpl implements BoardSe
 	
 	@Override
 	public void insertBoard(BoardVo vo, MultipartFile[] file) throws Exception{
-		
+		System.out.println("insertBoard - 1");
 		vo.setBoard_idx(boardMapper.selectBoardIdx());
+		System.out.println("insertBoard - 2");
 		boardMapper.insertBoard(vo);
-		
+		System.out.println("insertBoard - 3");
 		FileUtils fileUtils = new FileUtils();
 		List<Map<String, Object>> fileList = fileUtils.parseFileInfo(vo, file);
 		for(int i = 0; i<fileList.size(); i++) {
