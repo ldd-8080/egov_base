@@ -39,19 +39,6 @@ public class cmmnInterceptor extends HandlerInterceptorAdapter {
 				log.debug("Response viewName : " + modelAndView.getViewName());
 			}
 		}
-		if (modelAndView == null) {
-			modelAndView = new ModelAndView();
-			modelAndView.addObject("userVo", new UserVo());
-		}
-		
-		ModelMap model = modelAndView.getModelMap();
-		
-		if (!model.containsAttribute("userVo")) {
-//			ModelMap userModel = new ModelMap();
-//			userModel.addAttribute("userVo", new UserVo());
-			modelAndView.addObject("userVo", new UserVo());
-			//modelAndView.addObject(userModel);
-		}
 		
 		super.postHandle(request, response, handler, modelAndView);
 	}

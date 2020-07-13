@@ -26,20 +26,6 @@
   <div class="navbar-container container-fluid">
     <!-- Navbar Collapse -->
     <div class="collapse navbar-collapse navbar-collapse-toolbar" id="site-navbar-collapse">
-      <!-- Navbar Toolbar -->
-      <ul class="nav navbar-toolbar">
-        <li class="nav-item hidden-float" id="toggleMenubar">
-          <a class="nav-link" data-toggle="menubar" href="#" role="button">
-            <i class="icon hamburger hamburger-arrow-left">
-              <span class="sr-only">Toggle menubar</span>
-              <span class="hamburger-bar"></span>
-            </i>
-          </a>
-        </li> 
-       
-      </ul>
-      <!-- End Navbar Toolbar -->
-
       <!-- Navbar Toolbar Right -->
       <ul class="nav navbar-toolbar navbar-right navbar-toolbar-right">
         <c:if test="${not empty login}">
@@ -54,7 +40,7 @@
         </c:if>
         <c:if test="${empty login}">
 	        <li class="nav-item hidden-float">
-	        	<a class="nav-link" data-toggle="modal" data-target="#examplePositionCenter" href="#" role="button">
+	        	<a class="nav-link" data-toggle="modal" data-target="#examplePositionCenter" href="#" id="nav-login" role="button">
 		       		<i class="icon md-power"></i> Login
 		       	</a>
 	        </li>
@@ -87,20 +73,22 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">x</span>
         </button>
-        <h4 class="modal-title">Modal Title</h4>
+        <h4 class="modal-title">Login</h4>
       </div>
       <div class="modal-body">
         <form id="nav-login-form">
         	<div class="form-group form-material floating" data-plugin="formMaterial">
-        		<input type="text" class="form-control" name="email"/>
+        		<input type="text" class="form-control" name="email" id="email"/>
         		<label class="floating-label">Id</label>
         	</div>
         	<div class="form-group form-material floating" data-plugin="formMaterial">
-        		<input type="text" class="form-control" name="pw"/>
+        		<input type="password" class="form-control" name="pw" id="pw"/>
         		<label class="floating-label">Password</label>
         	</div>
+        	<span class="text-left" id="chk-error"></span>
         	<button type="button" class="btn btn-primary btn-block btn-lg mt-40" id="nav-login-btn">Sign in</button>
         </form>
+        <p class="text-right">Still no account? Please go to <a href="/user/signUpPage.do">Sign up</a></p>
       </div>
       <div class="modal-footer">
         <!-- <button type="button" class="btn btn-default btn-pure" data-dismiss="modal">Close</button>
@@ -112,8 +100,25 @@
 <!-- End Modal -->
 
 <script type="text/javascript">
-	$("#nav-login-btn").click(function() {
+	$(function() {
+		$("#email").keydown(function(key) {
+			if (key.keyCode === 13) {
+				login();
+			}
+		});
 		
+		$("#pw").keydown(function(key) {
+			if (key.keyCode === 13) {
+				login();
+			}
+		});
+		
+		$("#nav-login-btn").click(function() {
+			login();
+		});
+	});
+
+	function login() {
 		var request = $.ajax({
 			url: "/login/login.do",
 			method: "post",
@@ -128,13 +133,14 @@
 			if (data === "success") {
 				location.href = "${pageContext.request.contextPath}/main/main.do";
 			} else {
-				alert(data);
+				//alert(data);
+				$("#chk-error").text(data);
 			}
 		});
 		request.fail(function(error) {
 			console.log(error);
 			console.log("request fail");
 		});
-	});
+	}
 	
 </script>

@@ -21,4 +21,9 @@ public class UserServiceImpl  extends EgovAbstractServiceImpl implements UserSer
 		
 	}
 
+	@Override
+	public void createUser(UserVo vo) throws Exception {
+		userMapper.createUser(vo);
+	}
+
 }

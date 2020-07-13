@@ -45,7 +45,7 @@
 		<put-attribute name="body"    	value="/WEB-INF/jsp/login/login.jsp" />
 	</definition>
 	
-	<definition name="login/signUp" extends="layouts-tiles-signUp">
-		<put-attribute name="body"    	value="/WEB-INF/jsp/login/signUp.jsp" />
+	<definition name="user/signUp" extends="layouts-tiles-signUp">
+		<put-attribute name="body"    	value="/WEB-INF/jsp/user/signUp.jsp" />
 	</definition>
 </tiles-definitions>

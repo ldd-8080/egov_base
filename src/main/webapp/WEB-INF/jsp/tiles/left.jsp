@@ -8,7 +8,7 @@
         <ul class="site-menu" data-plugin="menu">
           <!-- <li class="site-menu-category">General</li> -->
           <li class="site-menu-item has-sub">
-            <a class="animsition-link" href="/">
+            <a class="animsition-link" href="/main/main.do">
                 <i class="site-menu-icon md-view-dashboard" aria-hidden="true"></i>
                 <span class="site-menu-title">Dashboard</span>
             </a>

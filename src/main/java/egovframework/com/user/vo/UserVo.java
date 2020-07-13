@@ -1,15 +1,22 @@
 package egovframework.com.user.vo;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Length;
 
 public class UserVo {
 
 	@NotNull
-	@Size(min=1, max=30, message="userId not null")
+	@Email
+	@Length(min=1)
 	private String email;
 	private String user_seq;
+	@NotNull
+	@Size(min=1, max=20)
 	private String pw;
+	
 	private String phone_num;
 	private String nickname;
 	private String pwCheck;
@@ -83,6 +90,12 @@ public class UserVo {
 	}
 	public String getPwKey() {
 		return getPw() + getKey();
+	}
+	@Override
+	public String toString() {
+		return "UserVo [email=" + email + ", user_seq=" + user_seq + ", pw=" + pw + ", phone_num=" + phone_num
+				+ ", nickname=" + nickname + ", pwCheck=" + pwCheck + ", key=" + key + ", useCookie=" + useCookie
+				+ ", status=" + status + ", file=" + file + "]";
 	}
 	
 	

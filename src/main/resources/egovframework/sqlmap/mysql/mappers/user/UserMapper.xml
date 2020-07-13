@@ -18,4 +18,20 @@
 		WHERE user_seq = #{user_seq}
 	</update>
 	
+	<insert id="createUser">
+		INSERT INTO daul.out_user
+			   (
+			     email
+			   , pw
+			   , nickname
+			   , phone_num
+			   )
+		VALUES (
+				 #{email}
+			   , #{pw}
+			   , #{nickname}
+			   , #{phone_num}
+			   )
+	
+	</insert>
 </mapper>

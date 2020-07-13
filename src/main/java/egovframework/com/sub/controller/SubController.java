@@ -1,6 +1,5 @@
 package egovframework.com.sub.controller;
 
-import javax.activation.CommandMap;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -17,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import egovframework.com.cmmn.SecurityUtil;
-import egovframework.com.cmmn.interceptor.cmmnInterceptor;
 import egovframework.com.sub.service.SubService;
 import egovframework.com.sub.vo.SubVo;
 
@@ -25,7 +23,7 @@ import egovframework.com.sub.vo.SubVo;
 @RequestMapping(value = "/sub")
 public class SubController {
 	
-	protected Log log = LogFactory.getLog(cmmnInterceptor.class);
+	protected Log log = LogFactory.getLog(SubController.class);
 	
 	@Resource(name = "subService")
 	private SubService subService;

@@ -55,7 +55,7 @@ public class LoginController {
 	@RequestMapping(value="/logout.do")
 	public String logout(HttpSession session) throws Exception {
 		session.invalidate();
-		//response.sendRedirect(request.getContextPath() + "/main/main.do");
+		
 		return "redirect:/main/main.do";
 	}
 }

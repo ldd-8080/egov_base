@@ -6,4 +6,6 @@ import egovframework.rte.psl.dataaccess.mapper.Mapper;
 @Mapper("userMapper")
 public interface UserMapper {
 	void userUpdate(UserVo vo) throws Exception;
+
+	void createUser(UserVo vo) throws Exception;
 }
