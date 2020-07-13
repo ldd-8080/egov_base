@@ -12,7 +12,7 @@
 <div class="page">
 	<div class="page-content container-fluid">
 	    <!-- Page -->
-	    <h1 class="page-title">게시</h1>
+	    <h1 class="page-title">게시판</h1>
 	    <ol class="breadcrumb">
 	      <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
 	      <li class="breadcrumb-item"><a href="javascript:void(0)">Board</a></li>
@@ -26,7 +26,7 @@
 		          <h3 class="panel-title">Board</h3>
 		        </header>
 		        <div class="panel-body">
-		          <table class="table table-hover dataTable table-striped w-full" id="userTable" data-plugin="dataTable">
+		          <table class="table table-hover dataTable table-striped w-full" id="boardTable" data-plugin="dataTable">
 		            <thead>
 		              <tr>
 		                <th>Seq</th>
@@ -47,18 +47,25 @@
 		            </tbody>
 		          </table>
 		        </div>
+		        <div class="col-md-6">
+                	<div class="example example-buttons">                     
+                     	<div>
+                     		<button type="button" class="btn btn-squared btn-info" onclick="location.href='/board/boardWrite.do'">글쓰기</button>
+                     	</div>                     
+                	</div>
+            	</div>
 	    	</div>
-		</div>
+	    </div>
 	</div>
 <!-- End Page -->
 </div>
 <script type="text/javascript">
-	$("#userTable tr td").click(function(event) {
+	$("#boardTable tr td").click(function(event) {
 		if ($(this).get(0).cellIndex === 0) {
 		} else {
-			var nickname = $(this).parent().children().eq(2).text();
+			var board_seq = $(this).parent().children().eq(0).text();
 			
-			location.href = "${pageContext.request.contextPath}/sub/userDetailPage.do?Nickname=" + nickname;
+			location.href = "${pageContext.request.contextPath}/board/boardDetail.do?board_seq=" + board_seq;
 		}
 	});
 

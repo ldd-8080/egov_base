@@ -1,4 +1,4 @@
-package egovframework.com.board.vo.BoardVo;
+package egovframework.com.board.vo;
 
 public class BoardVo {
 	private String board_seq;
@@ -9,6 +9,30 @@ public class BoardVo {
 	private String update_user;
 	private String udate;
 	private String del_flag;
+	private String boardfile;
+	private String org_file_name;
+	private String board_idx;
+
+	
+	
+	public String getBoard_idx() {
+		return board_idx;
+	}
+	public void setBoard_idx(String board_idx) {
+		this.board_idx = board_idx;
+	}
+	public String getOrg_file_name() {
+		return org_file_name;
+	}
+	public void setOrg_file_name(String org_file_name) {
+		this.org_file_name = org_file_name;
+	}
+	public String getBoardfile() {
+		return boardfile;
+	}
+	public void setBoardfile(String boardfile) {
+		this.boardfile = boardfile;
+	}
 	public String getBoard_seq() {
 		return board_seq;
 	}

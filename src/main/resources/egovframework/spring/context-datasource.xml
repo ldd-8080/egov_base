@@ -21,7 +21,7 @@
     <!-- Mysql (POM에서 commons-dbcp, mysql-connector-java 관련 라이브러리 설정 ) --> 
     <bean id="dataSource" class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
         <property name="driverClass" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://183.111.102.211:3306/daul" />
+        <property name="url" value="jdbc:mysql://183.111.102.211:3306/daul?useUnicode=true&amp;characterEncoding=utf8" />
         <property name="username" value="daul"/>
         <property name="password" value="Ekdhf123!"/>
     </bean>

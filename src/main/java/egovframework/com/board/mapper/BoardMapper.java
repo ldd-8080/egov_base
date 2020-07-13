@@ -3,10 +3,15 @@ package egovframework.com.board.mapper;
 import java.util.List;
 import java.util.Map;
 
+import egovframework.com.board.vo.BoardVo;
 import egovframework.rte.psl.dataaccess.mapper.Mapper;
 
 @Mapper("boardMapper")
 public interface BoardMapper {
 	
 	List<Map<String,String>> selectBoardList();
+	BoardVo selectBoard(BoardVo vo) throws Exception;
+	void insertBoard(BoardVo vo) throws Exception;
+	void insertFile(Map<String,Object> map) throws Exception;
+	String selectBoardIdx() throws Exception;
 }

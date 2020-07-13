@@ -10,6 +10,53 @@
 			content, 
 			reg_user, 
 			DATE_FORMAT(rdate, '%Y-%m-%d') as rdate
-		FROM daul.board;
+		FROM daul.board
+		
 	</select>
+		
+	<select id="selectBoardIdx" resultType="String">
+		SELECT CONCAT('B-',LPAD(count(*)+1,'7','0')) as 'board_idx'
+		FROM board
+	</select>
+	
+	<select id="selectBoard" resultType="egovframework.com.board.vo.BoardVo">
+		SELECT 
+			board_seq, 
+			title, 
+			content, 
+			reg_user, 
+			DATE_FORMAT(rdate, '%Y-%m-%d') as rdate
+		FROM daul.board
+		WHERE board_seq = #{board_seq}
+	</select>
+	
+	<insert id="insertBoard">
+		INSERT INTO board (board_idx,title, content,reg_user,rdate,update_user,udate)
+		values
+		(#{board_idx},#{title},#{content},'홍진표',now(),'홍진표',now()) 
+	</insert>
+	
+	<insert id = "insertFile" parameterType = "hashmap">
+		INSERT INTO tb_file
+        (
+            BOARD_IDX,
+            ORG_FILE_NAME,
+            SAVE_FILE_NAME,
+            FILE_SIZE,
+            CREA_ID,
+            CREA_DATE,
+            UPDATE_DATE
+        )
+        VALUES
+        (
+            #{ BOARD_IDX},
+            #{ ORG_FILE_NAME},
+            #{ SAVE_FILE_NAME},
+            #{ FILE_SIZE},
+            'abc',
+            SYSDATE(),
+            SYSDATE()
+        )
+	</insert>
+	
 </mapper>
