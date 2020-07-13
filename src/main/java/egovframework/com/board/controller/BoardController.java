@@ -67,7 +67,7 @@ public class BoardController {
       
        System.out.println(session.getAttribute("login"));
        SubVo subVo = (SubVo) session.getAttribute("login");
-       System.out.println(subVo.getEmail());
+       System.out.println("user_seq === " + subVo.getUser_seq());
        
        boardService.insertBoard(vo,file);
        

@@ -4,7 +4,7 @@
 	namespace="egovframework.com.login.mapper.LoginMapper">
 	
 	<select id="selectLoginCheck" resultType="egovframework.com.user.vo.UserVo">
-		SELECT email,pw FROM out_user
+		SELECT user_seq,email,pw FROM out_user
 		WHERE email = #{email}
 	</select>
 </mapper>
