@@ -13,4 +13,5 @@ public interface BoardService {
 	public BoardVo selectBoard(BoardVo vo) throws Exception;
 	void insertBoard(BoardVo vo, MultipartFile[] file)throws Exception;
 	public List<Map<String,String>> selectBoardFile(BoardVo vo) throws Exception;
+	public BoardVo selectDownloadFile(BoardVo vo) throws Exception;
 }

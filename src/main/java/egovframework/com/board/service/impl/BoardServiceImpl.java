@@ -61,6 +61,13 @@ public class BoardServiceImpl extends EgovAbstractServiceImpl implements BoardSe
 		}
 		
 	}
+	
+	@Override
+	public BoardVo selectDownloadFile(BoardVo vo) throws Exception{
+		return boardMapper.selectDownloadFile(vo);
+	}
+	
+	
 }
 
 

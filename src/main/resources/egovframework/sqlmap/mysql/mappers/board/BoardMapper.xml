@@ -75,4 +75,14 @@
         )
 	</insert>
 	
+	<select id="selectDownloadFile" resultType="egovframework.com.board.vo.BoardVo">
+		SELECT 
+			ORG_FILE_NAME,
+			SAVE_FILE_NAME
+		FROM tb_file
+		WHERE idx  = #{file_idx}
+	</select>
+	
+	
+	
 </mapper>

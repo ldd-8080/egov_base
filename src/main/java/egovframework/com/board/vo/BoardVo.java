@@ -11,10 +11,23 @@ public class BoardVo {
 	private String del_flag;
 	private String boardfile;
 	private String org_file_name;
+	private String save_file_name;
 	private String board_idx;
-
+	private String file_idx;
 	
 	
+	public String getSave_file_name() {
+		return save_file_name;
+	}
+	public void setSave_file_name(String save_file_name) {
+		this.save_file_name = save_file_name;
+	}
+	public String getFile_idx() {
+		return file_idx;
+	}
+	public void setFile_idx(String file_idx) {
+		this.file_idx = file_idx;
+	}
 	public String getBoard_idx() {
 		return board_idx;
 	}

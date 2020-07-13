@@ -1,12 +1,17 @@
 package egovframework.com.board.controller;
 
+import java.io.File;
+import java.net.URLEncoder;
 import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Controller;
@@ -20,7 +25,6 @@ import org.springframework.web.multipart.MultipartFile;
 import egovframework.com.board.service.BoardService;
 import egovframework.com.board.vo.BoardVo;
 import egovframework.com.cmmn.interceptor.cmmnInterceptor;
-import egovframework.com.sub.vo.SubVo;
 import egovframework.com.user.vo.UserVo;
 @Controller
 @RequestMapping(value = "/board")
@@ -93,5 +97,29 @@ public class BoardController {
         
         return "board/boardList";
     }
+	
+	@RequestMapping(value="/downloadFile.do")
+	public void downloadFile(HttpServletRequest requeset, HttpServletResponse response) throws Exception{
+		System.out.println(requeset.getParameter("idx"));
+		BoardVo boardVo = new BoardVo();
+		boardVo.setFile_idx(requeset.getParameter("idx"));
+		BoardVo vo = new BoardVo();
+		vo = boardService.selectDownloadFile(boardVo);
+		String stored_File_Name = vo.getSave_file_name();
+		String original_File_Name = vo.getOrg_file_name();
+		System.out.println("stored_File_Name = " + stored_File_Name + ", original_File_Name = " + original_File_Name);
+		
+		  byte[] fileByte = FileUtils.readFileToByteArray(new File("/Users/a2/attach/"+ stored_File_Name));
+	         
+	        response.setContentType("application/octet-stream");
+	        response.setContentLength(fileByte.length);
+	        response.setHeader("Content-Disposition", "attachment; fileName=\"" + URLEncoder.encode(original_File_Name,"UTF-8")+"\";");
+	        response.setHeader("Content-Transfer-Encoding", "binary");
+	        response.getOutputStream().write(fileByte);
+	          
+	        response.getOutputStream().flush();
+	        response.getOutputStream().close();
+		
+	}
 	
 }

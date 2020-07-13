@@ -51,9 +51,11 @@
 	    		</div>    
 	    		 <tbody>
 		            	<c:forEach var="boardFile" items="${boardFile}" varStatus="status">
+		            		
 		            		<li>
+		            		<input type="hidden" id="IDX" value="${boardFile.IDX}">
 		            			<span class="file-img"></span>
-		            			<a href='#'><i class="fa fa-camera"></i>${boardFile.ORG_FILE_NAME}</a>
+		            			<a href="#this" name="file">${boardFile.ORG_FILE_NAME}</a>
 		            			<span>${boardFile.FILE_SIZE } kb</span>
 		            		</li>
 		            	</c:forEach>
@@ -77,7 +79,34 @@
 </div>
 
 <script type="text/javascript">
+   $(document).ready(function(){
+	  $("a[name='file']").on("click",function(e){
+		  e.preventDefault();
+		  fn_downloadFile($(this));
+	  });
+   });
    
+  function fn_downloadFile(obj){
+	  var idx = obj.parent().find("#IDX").val();
+	var form = {
+			"idx":idx
+		}
+	
+	$.ajax({
+		  type:'POST',
+		  url:'/board/downloadFile.do',
+		  data :form,
+		  async : false,
+		  Type:"POST",
+		  success: function(json){
+			  alert("aaaaaaaaAA")
+		  },
+		  error : function(xhr,status,error){
+			  alert(error)
+			  console.log(error);
+		  },
+		  });
+  }
 </script>
 
 
