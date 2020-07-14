@@ -14,6 +14,7 @@ import javax.validation.Valid;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -34,9 +35,12 @@ public class BoardController {
 	@Resource(name = "boardService")
 	private BoardService boardService;
 	
+	@Value("${file.downloadpath}")
+	private String filePath;
+	
 	@RequestMapping(value="/boardList.do", method = RequestMethod.GET)
 	public String boardList(ModelMap model) throws Exception{
-		
+		System.out.println("filaPath = "+ filePath);
 		try {
 			List<Map<String, String>> boardList = boardService.selectBoardList();
 			model.addAttribute("resultList",boardList);
@@ -100,7 +104,7 @@ public class BoardController {
 	
 	@RequestMapping(value="/downloadFile.do",method = RequestMethod.GET)
 	public void downloadFile(HttpServletRequest requeset, HttpServletResponse response, @RequestParam("idx") String idx) throws Exception{
-		System.out.println(requeset.getParameter("idx"));
+		System.out.println(requeset.getParameter("idx") );
 		BoardVo boardVo = new BoardVo();
 		boardVo.setFile_idx(requeset.getParameter("idx"));
 		BoardVo vo = new BoardVo();
@@ -110,7 +114,7 @@ public class BoardController {
 		String original_File_Name = vo.getOrg_file_name();
 		System.out.println("stored_File_Name = " + stored_File_Name + ", original_File_Name = " + original_File_Name);
 		
-		byte[] fileByte = FileUtils.readFileToByteArray(new File("/Users/a2/attach/"+ stored_File_Name));
+		byte[] fileByte = FileUtils.readFileToByteArray(new File(filePath+ stored_File_Name));
 	         
         response.setContentType("application/octet-stream");
         response.setContentLength(fileByte.length);

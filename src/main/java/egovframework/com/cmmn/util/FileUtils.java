@@ -11,6 +11,7 @@ import javax.annotation.Resource;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -24,6 +25,8 @@ public class FileUtils {
     @Resource(name="uploadPath")
     String uploadPath;
  
+	@Value("${file.uploadpath}")
+	private String filePath;
     public List<Map<String, Object>> parseFileInfo(BoardVo vo, MultipartFile[] file) throws Exception {
 
         String boardIDX = String.valueOf(vo.getBoard_idx());
