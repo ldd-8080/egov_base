@@ -78,11 +78,11 @@
       <div class="modal-body">
         <form id="nav-login-form">
         	<div class="form-group form-material floating" data-plugin="formMaterial">
-        		<input type="text" class="form-control" name="email" id="email"/>
+        		<input type="text" class="form-control" name="nav_email" id="nav_email"/>
         		<label class="floating-label">Id</label>
         	</div>
         	<div class="form-group form-material floating" data-plugin="formMaterial">
-        		<input type="password" class="form-control" name="pw" id="pw"/>
+        		<input type="password" class="form-control" name="nav_pw" id="nav_pw"/>
         		<label class="floating-label">Password</label>
         	</div>
         	<span class="text-left" id="chk-error"></span>
@@ -108,13 +108,13 @@
 			$("#nav-login").trigger("click");
 		}
 		
-		$("#email").keydown(function(key) {
+		$("#nav_email").keydown(function(key) {
 			if (key.keyCode === 13) {
 				login();
 			}
 		});
 		
-		$("#pw").keydown(function(key) {
+		$("#nav_pw").keydown(function(key) {
 			if (key.keyCode === 13) {
 				login();
 			}

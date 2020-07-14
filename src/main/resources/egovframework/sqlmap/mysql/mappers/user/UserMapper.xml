@@ -9,6 +9,9 @@
 		<if test="email != null and email != '' ">
 			email = #{email}
 		</if>
+		<if test="pw != null and pw != '' ">
+			pw = #{pw}
+		</if>
 		<if test="phone_num != null and phone_num != '' " >
 			,phone_num = #{phone_num}
 		</if>

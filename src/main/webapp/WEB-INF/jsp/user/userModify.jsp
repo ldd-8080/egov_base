@@ -19,14 +19,14 @@
 	          <div class="form-group form-material row" style="display: none;">
 		    	<label class="col-md-3 col-form-label">번호</label>
 		    	<div class="col-md-4">
-		    	  <form:input type="text" class="form-control" value="${userVo.user_seq}" path="user_seq"/>
+		    	  <form:input type="text" class="form-control" path="user_seq"/>
 		    	</div>
 		      </div>
 	    		
 	    	  <div class="form-group form-material row">
 	      	    <label class="col-md-3 col-form-label">Email</label>
 	    	    <div class="col-md-4">
-	    		  <form:input type="text" class="form-control" value="${userVo.email}" path="email"/>
+	    		  <form:input type="text" class="form-control" path="email"/>
 	    		  <form:errors path="email"/>
 	    		</div>
 	    	  </div>
@@ -35,20 +35,22 @@
 	      	    <label class="col-md-3 col-form-label">Password</label>
 	    	    <div class="col-md-4">
 	    		  <form:input type="password" class="form-control" path="pw"/>
+	    		  <form:errors path="pw"/>
 	    		</div>
 	    	  </div>
 	    	  
 	    	  <div class="form-group form-material row">
 	      	    <label class="col-md-3 col-form-label">Password Check</label>
 	    	    <div class="col-md-4">
-	    		  <input type="password" class="form-control"/>
+	    		  <input type="password" class="form-control" id="pwChk"/>
+	    		  <span class="text-left" id="pwChk-error"></span>
 	    		</div>
 	    	  </div>
 	    	
 	    	  <div class="form-group form-material row">
 	    	    <label class="col-md-3 col-form-label">Nickname</label>
 	    		<div class="col-md-4">
-	    		  <form:input type="text" class="form-control" value="${userVo.nickname}" path="nickname"/>
+	    		  <form:input type="text" class="form-control" path="nickname"/>
 	    		  <form:errors path="nickname"/>
 	    		</div>
 	    	  </div>
@@ -56,7 +58,7 @@
 	    	  <div class="form-group form-material row">
 	    	    <label class="col-md-3 col-form-label">Phone</label>
 	    		<div class="col-md-4">
-	    		  <form:input type="text" class="form-control" value="${userVo.phone_num}" path="phone_num"/>
+	    		  <form:input type="text" class="form-control" path="phone_num"/>
 	    		  <form:errors path="phone_num"/>
 	    		</div>
 	    	  </div>
@@ -72,11 +74,24 @@
 </div>
 
 <script type="text/javascript">
+	var pw = $("#pw").val();
+	
+	if (pw != null) {
+		$("#pw").val("");
+	}
+
    	$("#listBtn").click(function() {
    		location.href = "${pageContext.request.contextPath}/user/userListPage.do";
    	});
    	
    	$("#modifyBtn").click(function() {
+   		passwordCheck();
+   		
+   		if (pwFlag) {
+			alert("비밀번호를 확인해주세요.");
+			return;
+		}
+   		
    		if (!confirm("수정하시겠습니까?")) return;
    		
    		$("#userVo").attr("action", "/user/update.do");
@@ -89,6 +104,25 @@
    		$("#userVo").attr("action", "/user/delete.do");
    		$("#userVo").submit();
    	});
+   	
+   	var pwFlag = false;
+   	
+   	function passwordCheck() {
+		var pw = $("#pw").val();
+		var pwChk = $("#pwChk").val();
+		
+		if (pw !== pwChk) {
+			$("#pwChk-error").text("비밀번호가 일치하지 않습니다.");
+			pwFlag = true;
+		} else {
+			$("#pwChk-error").text("");
+			pwFlag = false;
+		}
+	}
+	
+	$("#pwChk").blur(function() {
+		passwordCheck();
+	});
 </script>
 
 
