@@ -10,90 +10,65 @@
 	    <!-- Page -->
 	    <h1 class="page-title">사용자 상세</h1>
 	    <ol class="breadcrumb">
-	      <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
-	      <li class="breadcrumb-item"><a href="javascript:void(0)">Tables</a></li>
-	      <li class="breadcrumb-item active">DataTables</li>
+	      <li class="breadcrumb-item"><a href="/main/main.do">Home</a></li>
+	      <li class="breadcrumb-item active">사용자 상세</li>
 	    </ol>
 	
 	    <div class="page-content">
-	          <form:form method="post" modelAttribute="userVo">
+	        <form>
 	          <div class="form-group form-material row">
-	    			<label class="col-md-3 col-form-label">번호</label>
-	    			<div class="col-md-4">
-	    				<form:input type="text" class="form-control" path="user_seq" value="${userVo.user_seq}"/>
-	    			</div>
-	    		</div>
+		    	<label class="col-md-3 col-form-label">번호</label>
+		    	<div class="col-md-4">
+		    	  <input type="text" class="form-control" value="${userVo.user_seq}" disabled/>
+		    	</div>
+		      </div>
 	    		
-	    		<div class="form-group form-material row">
-	    			<label class="col-md-3 col-form-label">Email</label>
-	    			<div class="col-md-4">
-	    				<form:input type="text" class="form-control" path="email" value="${userVo.email}"/>
-	    			</div>
+	    	  <div class="form-group form-material row">
+	      	    <label class="col-md-3 col-form-label">Email</label>
+	    	    <div class="col-md-4">
+	    		  <input type="text" class="form-control" value="${userVo.email}" disabled/>
 	    		</div>
+	    	  </div>
 	    	
-	    		<div class="form-group form-material row">
-	    			<label class="col-md-3 col-form-label">Nickname</label>
-	    			<div class="col-md-4">
-	    				<form:input type="text" class="form-control" path="nickname" value="${userVo.nickname}"/>
-	    			</div>
+	    	  <div class="form-group form-material row">
+	    	    <label class="col-md-3 col-form-label">Nickname</label>
+	    		<div class="col-md-4">
+	    		  <input type="text" class="form-control" value="${userVo.nickname}" disabled/>
 	    		</div>
-	    		<div class="form-group form-material row">
-	    			<label class="col-md-3 col-form-label">Phone</label>
-	    			<div class="col-md-4">
-	    				<form:input type="text" class="form-control" path="phone_num" value="${userVo.phone_num}"/>
-	    			</div>
-	    		</div>    
-	    		<div class="col-sm-12 col-md-4 col-xl-2">
-	    			<ul class="list-unstyled">
-	    				<li class="mb-20">
-	    					<input type="submit" value="수정" formaction="/user/update.do">
-	    		 		</li>	    	
-	    				<li class="mb-20">
-	    					<input type="submit" value="삭제" formaction="/sub/loginPage.do">
-	    		 		</li>	    		
-	    				<li class="mb-20">
-	    					<input type="submit" value="목록" formaction="/main/main.do">
-	    		 		</li>
-	    			</ul>
-	    		</div>		
-	    	</form:form>
-	    	
-<form:form action='/sub/boardInsert.do' method="post" enctype="multipart/form-data" modelAttribute="userVo">
-    <!-- 생략 -->
-    <div class="form-group" id="file-list">
-        <a href="#this" onclick="addFile()">파일추가</a>
-        <div class="file-group">
-            <form:input type="file" path="file"/><a href='#this' name='file-delete'>삭제</a>
-        </div>
-    </div>
-    <button type="submit" class="btn btn-default">작성하기</button>
-</form:form>
-
-
+	    	  </div>
+	    	  
+	    	  <div class="form-group form-material row">
+	    	    <label class="col-md-3 col-form-label">Phone</label>
+	    		<div class="col-md-4">
+	    		  <input type="text" class="form-control" value="${userVo.phone_num}" disabled/>
+	    		</div>
+	    	  </div>
+	    	      
+	    	  <div class="example-buttons">
+                <button class="btn btn-primary waves-effect waves-classic" id="modifyBtn" type="button">수정</button>
+                <button class="btn btn-info waves-effect waves-classic" id="listBtn" type="button">목록</button>
+              </div>
+	    	</form>
 	    </div>
     </div>
 </div>
 
 <script type="text/javascript">
     $(document).ready(function() {
-        $("a[name='file-delete']").on("click", function(e) {
-            e.preventDefault();
-            deleteFile($(this));
-        });
+    	var nickname = getParameterByName("Nickname");
+    	
+    	$("#modifyBtn").click(function() {
+    		location.href = "${pageContext.request.contextPath}/user/userPwChkPage.do?Nickname=" + nickname;
+    	});
+    	
+    	$("#deleteBtn").click(function() {
+    		// delete request
+    	});
+    	
+    	$("#listBtn").click(function() {
+    		location.href = "${pageContext.request.contextPath}/user/userListPage.do";
+    	});
     })
- 
-    function addFile() {
-        var str = "<div class='file-group'><input type='file' name='file'><a href='#this' name='file-delete'>삭제</a></div>";
-        $("#file-list").append(str);
-        $("a[name='file-delete']").on("click", function(e) {
-            e.preventDefault();
-            deleteFile($(this));
-        });
-    }
- 
-    function deleteFile(obj) {
-        obj.parent().remove();
-    }
 </script>
 
 

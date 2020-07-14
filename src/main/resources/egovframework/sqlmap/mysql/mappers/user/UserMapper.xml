@@ -32,6 +32,39 @@
 			   , #{nickname}
 			   , #{phone_num}
 			   )
-	
 	</insert>
+	
+	<select id="selectUserList" resultType="Map">
+		SELECT user_seq
+		     , email
+		     , pw
+		     , nickname
+		     , phone_num
+		     , status
+		  FROM daul.out_user
+	</select>
+	
+	<select id="selectUser" resultType="egovframework.com.user.vo.UserVo">
+		SELECT user_seq
+		     , email
+		     , pw
+		     , nickname
+		     , phone_num
+		     , status
+		  FROM daul.out_user
+		 WHERE nickname = #{nickname}
+	</select>
+	
+	<delete id="deleteUser">
+		DELETE FROM daul.out_user
+		 WHERE email = #{email}
+		   AND nickname = #{nickname}
+	</delete>
+	
+	<select id="selectUserPwCheck" resultType="egovframework.com.user.vo.UserVo">
+		SELECT email
+		  FROM daul.out_user
+		 WHERE nickname = #{nickname}
+		   AND pw = #{pw}
+	</select>
 </mapper>
