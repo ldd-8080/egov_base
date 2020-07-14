@@ -6,18 +6,17 @@
 <div class="page">
 	<div class="page-content container-fluid">
 	    <!-- Page -->
-	    <h1 class="page-title">Jenkins2</h1>
+	    <h1 class="page-title">사용자 목록</h1>
 	    <ol class="breadcrumb">
-	      <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
-	      <li class="breadcrumb-item"><a href="javascript:void(0)">Tables</a></li>
-	      <li class="breadcrumb-item active">DataTables</li>
+	      <li class="breadcrumb-item"><a href="/main/main.do">Home</a></li>
+	      <li class="breadcrumb-item active">사용자 목록</li>
 	    </ol>
 	
 	    <div class="page-content">
 	    	<div class="panel">
 		        <header class="panel-heading">
 		          <div class="panel-actions"></div>
-		          <h3 class="panel-title">Basic</h3>
+		          <h3 class="panel-title">사용자 목록</h3>
 		        </header>
 		        <div class="panel-body">
 		          <table class="table table-hover dataTable table-striped w-full" id="userTable" data-plugin="dataTable">
@@ -31,6 +30,15 @@
 		              </tr>
 		            </thead>
 		            <tbody>
+		            	<c:forEach var="user" items="${userList}" varStatus="status">
+		            	<tr>
+		            		<td id="seq_${status.index}">${user.user_seq}</td>
+		            		<td>${user.email}</td>
+		            		<td>${user.pw}</td>
+		            		<td>${user.nickname}</td>
+		            		<td>${user.phone_num}</td>
+	            		</tr>
+		            	</c:forEach>
 		            </tbody>
 		          </table>
 		        </div>
@@ -45,7 +53,7 @@
 		} else {
 			var nickname = $(this).parent().children().eq(3).text();
 			
-			location.href = "${pageContext.request.contextPath}/sub/userDetailPage.do?Nickname=" + nickname;
+			location.href = "${pageContext.request.contextPath}/user/userDetailPage.do?Nickname=" + nickname;
 		}
 	});
 

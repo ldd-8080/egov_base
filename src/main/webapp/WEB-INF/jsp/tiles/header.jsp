@@ -58,8 +58,15 @@
 <![endif]-->
 
 <!-- Scripts -->
-<script src="${pageContext.request.contextPath}/js/breakpoints/breakpoints.js"></script>
-<script>
-  Breakpoints();
-</script>
 <script src="${pageContext.request.contextPath}/js/jquery/jquery.js"></script>
+<script src="${pageContext.request.contextPath}/js/breakpoints/breakpoints.js"></script>
+<script type="text/javascript">
+    Breakpoints();
+    
+	function getParameterByName(name) {
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)");
+        var results = regex.exec(location.search);
+        return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
+</script>

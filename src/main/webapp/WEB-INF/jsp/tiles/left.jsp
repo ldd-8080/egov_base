@@ -14,7 +14,7 @@
             </a>
           </li>
            <li class="site-menu-item has-sub">
-            <a class="animsition-link" href="/">              
+            <a class="animsition-link" href="/user/userListPage.do">              
                 <span class="site-menu-title">사용자관리</span>
             </a>
           </li>
