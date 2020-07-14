@@ -14,55 +14,78 @@
             </a>
           </li>
            <li class="site-menu-item has-sub">
-            <a class="animsition-link" href="/user/userListPage.do">              
-                <span class="site-menu-title">사용자관리</span>
-            </a>
-          </li>
-           <li class="site-menu-item has-sub">
-            <a class="animsition-link" href="/">              
-                <span class="site-menu-title">콘텐츠관리</span>
-            </a>
-          </li>
-             <li class="site-menu-item has-sub">
                 <a href="javascript:void(0)">
                         <i class="site-menu-icon md-view-compact" aria-hidden="true"></i>
-                        <span class="site-menu-title">게시글 관리</span>
+                        <span class="site-menu-title">사용자</span>
+                                <span class="site-menu-arrow"></span>
+                    </a>
+                <ul class="site-menu-sub">
+                  <li class="site-menu-item">
+                    <a class="animsition-link"  href="/user/userListPage.do">
+                   
+                      <span class="site-menu-title">사용자관리</span>
+                    </a>
+                  </li>
+                  <li class="site-menu-item">
+                    <a class="animsition-link" href="/">
+                    
+                      	<span class="site-menu-title">관리관리</span>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+        
+                <li class="site-menu-item has-sub">
+                <a href="javascript:void(0)">
+                        <i class="site-menu-icon md-view-compact" aria-hidden="true"></i>
+                        <span class="site-menu-title">서비스</span>
                                 <span class="site-menu-arrow"></span>
                     </a>
                 <ul class="site-menu-sub">
                   <li class="site-menu-item">
                     <a class="animsition-link" href="/board/boardList.do">
+                  
+                      <span class="site-menu-title">열린제안</span>
+                    </a>
+                  </li>
+                  <li class="site-menu-item">
+                    <a class="animsition-link" href="/">
+                    	
+                      	<span class="site-menu-title">설문조사</span>
+                    </a>
+                  </li> 
+                  <li class="site-menu-item">
+                    <a class="animsition-link" href="/">
+                    
+                      	<span class="site-menu-title">나눔공모</span>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+        
+             <li class="site-menu-item has-sub">
+                <a href="javascript:void(0)">
+                        <i class="site-menu-icon md-view-compact" aria-hidden="true"></i>
+                        <span class="site-menu-title">게시판</span>
+                                <span class="site-menu-arrow"></span>
+                    </a>
+                <ul class="site-menu-sub">
+                  <li class="site-menu-item">
+                    <a class="animsition-link" href="/board/boardList.do">
+                   
                       <span class="site-menu-title">공지사항</span>
                     </a>
                   </li>
                   <li class="site-menu-item">
                     <a class="animsition-link" href="/">
-                      <span class="site-menu-title">Q&A</span>
+                    
+                      	<span class="site-menu-title">Q&A</span>
                     </a>
                   </li>
                 </ul>
               </li>
-           <li class="site-menu-item has-sub">
-            <a class="animsition-link" href="/">              
-                <span class="site-menu-title">열린제안관리</span>
-            </a>
-          </li>
-           <li class="site-menu-item has-sub">
-            <a class="animsition-link" href="/">              
-                <span class="site-menu-title">설문조사관리</span>
-            </a>
-          </li>
-           <li class="site-menu-item has-sub">
-            <a class="animsition-link" href="/">              
-                <span class="site-menu-title">나눔공모관리</span>
-            </a>
-          </li>
-            <li class="site-menu-item has-sub">
-            <a class="animsition-link" href="/">              
-                <span class="site-menu-title">기록/통계</span>
-            </a>
-          </li>
-          
+        
+      
           
         </ul>
       </div>

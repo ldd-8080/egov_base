@@ -29,10 +29,11 @@
 		          <table class="table table-hover dataTable table-striped w-full" id="boardTable" data-plugin="dataTable">
 		            <thead>
 		              <tr>
-		                <th>Seq</th>
+		                <th>번호</th>
 		                <th>제목</th>
 		                <th>등록자</th>
 		                <th>등록일</th>
+		                <th></th>
 		              </tr>
 		            </thead>
 		            <tbody>
@@ -42,6 +43,7 @@
 		            		<td>${result.title}</td>
 		            		<td>${result.reg_user}</td>
 		            		<td>${result.rdate}</td>
+		            			<td><button>답변달기</button></td>
 	            		</tr>
 		            	</c:forEach>
 		            </tbody>
