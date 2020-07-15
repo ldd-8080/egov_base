@@ -12,9 +12,9 @@
 				</div>
 				<form:form method="post" action="/user/signUp.do" modelAttribute="userVo" id="signUpForm">
 					<div class="form-group form-material floating" data-plugin="formMaterial">
-						<form:input type="text" class="form-control" id="email" path="email"/>
-						<label class="floating-label">Email</label>
-						<form:errors class="text-left" path="email"/>
+						<form:input type="text" class="form-control" id="id" path="id"/>
+						<label class="floating-label">Id</label>
+						<form:errors class="text-left" path="id"/>
 					</div>
 					<div class="form-group form-material floating" data-plugin="formMaterial">
 						<form:input type="password" class="form-control" id="pw" path="pw"/>
@@ -31,6 +31,11 @@
 						<form:input type="text" class="form-control" path="nickname"/>
 						<label class="floating-label">Nickname</label>
 						<form:errors path="nickname"/>
+					</div>
+					<div class="form-group form-material floating" data-plugin="formMaterial">
+						<form:input type="text" class="form-control" id="email" path="email"/>
+						<label class="floating-label">Email</label>
+						<form:errors class="text-left" path="email"/>
 					</div>
 					<div class="form-group form-material floating" data-plugin="formMaterial">
 						<form:input type="text" class="form-control" path="phone_num"/>

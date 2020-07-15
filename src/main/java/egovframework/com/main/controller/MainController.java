@@ -21,15 +21,7 @@ public class MainController {
 	
 	@RequestMapping(value = "/main.do")
 	public String home(ModelMap model) throws Exception{
-		System.out.println("main controller");
-		
 		try {
-
-			
-			List<Map<String, String>> dummyList = mainService.selectDummyList();
-			System.out.println("dummyList >>> " + dummyList);
-			
-			model.addAttribute("resultList", dummyList);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

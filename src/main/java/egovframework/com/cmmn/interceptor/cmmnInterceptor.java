@@ -19,12 +19,28 @@ public class cmmnInterceptor extends HandlerInterceptorAdapter {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-		// TODO Auto-generated method stub
+		String requestURI = request.getRequestURI();
 		
 		if(log.isDebugEnabled()) {
 		
 			log.debug(" ============= start ==============");
-			log.debug("Request URI \t :" + request.getRequestURI());
+			log.debug("Request URI \t :" + requestURI);
+		}
+		
+		HttpSession httpSession = request.getSession();
+		
+		try {
+			if (requestURI.indexOf("/main") == -1) {
+				if (httpSession.getAttribute(LOGIN) != null) {
+					
+				} else {
+					log.debug(" =============권한없음==============");
+					response.sendRedirect("/main/main.do?chk=1");
+					return false;
+				}
+			}
+		} catch (Exception e) {
+			
 		}
 		
 		return super.preHandle(request, response, handler);
@@ -33,30 +49,17 @@ public class cmmnInterceptor extends HandlerInterceptorAdapter {
 	@Override
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
-		// TODO Auto-generated method stub
-		
-		HttpSession httpSession = request.getSession();
-		String requestURI = request.getRequestURI();
 		
 		try {
-			if(!requestURI.equals("/main/main.do")) {
-				if(httpSession.getAttribute(LOGIN) != null) {
-					if(log.isDebugEnabled()) {
-						log.debug(" ============= end ==============");
-						if (modelAndView != null) {
-							log.debug("Response viewName : " + modelAndView.getViewName());
-						}
-					}
-				}else {
-					log.debug(" =============권한없음==============");
-					response.sendRedirect("/main/main.do?chk=1");
+			if(log.isDebugEnabled()) {
+				log.debug(" ============= end ==============");
+				if (modelAndView != null) {
+					log.debug("Response viewName : " + modelAndView.getViewName());
 				}
 			}
 		}catch(Exception e) {
 		
 		}
-		
-	
 		
 		super.postHandle(request, response, handler, modelAndView);
 	}

@@ -87,6 +87,7 @@
        <mvc:interceptor>
            <mvc:mapping path="/**"/>
            <mvc:exclude-mapping path="/log*/*.do"/>
+           <mvc:exclude-mapping path="/user/signUp*.do"/>
            <bean  class="egovframework.com.cmmn.interceptor.cmmnInterceptor"/>
            
        </mvc:interceptor>
