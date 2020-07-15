@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="egovframework.com.faq.mapper.FaqMapper">
+	
+	<select id="selectFaqList" resultType="Map">	
+		SELECT 
+			faq_idx,
+			question,
+			answer,
+			create_user,
+			DATE_FORMAT(create_date, '%Y-%m-%d') as create_date,
+			update_user,
+			DATE_FORMAT(update_date, '%Y-%m-%d') as update_date,
+			del_chk
+		FROM daul.daul_faq
+	</select>
+</mapper>

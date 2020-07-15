@@ -21,14 +21,12 @@
                     </a>
                 <ul class="site-menu-sub">
                   <li class="site-menu-item">
-                    <a class="animsition-link"  href="/user/userListPage.do">
-                   
+                    <a class="animsition-link"  href="/user/userListPage.do">                   
                       <span class="site-menu-title">사용자관리</span>
                     </a>
                   </li>
                   <li class="site-menu-item">
-                    <a class="animsition-link" href="/">
-                    
+                    <a class="animsition-link" href="/">                    
                       	<span class="site-menu-title">관리관리</span>
                     </a>
                   </li>
@@ -49,14 +47,12 @@
                     </a>
                   </li>
                   <li class="site-menu-item">
-                    <a class="animsition-link" href="/">
-                    	
+                    <a class="animsition-link" href="/">                    	
                       	<span class="site-menu-title">설문조사</span>
                     </a>
                   </li> 
                   <li class="site-menu-item">
-                    <a class="animsition-link" href="/">
-                    
+                    <a class="animsition-link" href="/">                    
                       	<span class="site-menu-title">나눔공모</span>
                     </a>
                   </li>
@@ -71,22 +67,22 @@
                     </a>
                 <ul class="site-menu-sub">
                   <li class="site-menu-item">
-                    <a class="animsition-link" href="/board/boardList.do">
-                   
+                    <a class="animsition-link" href="/board/boardList.do">                   
                       <span class="site-menu-title">공지사항</span>
                     </a>
                   </li>
+                     <li class="site-menu-item">
+                    <a class="animsition-link" href="/faq/faqList.do">                    
+                      	<span class="site-menu-title">FAQ</span>
+                    </a>
+                  </li>
                   <li class="site-menu-item">
-                    <a class="animsition-link" href="/">
-                    
+                    <a class="animsition-link" href="/">                    
                       	<span class="site-menu-title">Q&A</span>
                     </a>
                   </li>
                 </ul>
               </li>
-        
-      
-          
         </ul>
       </div>
     </div>
